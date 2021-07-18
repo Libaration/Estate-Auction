@@ -29,7 +29,9 @@ function App(props) {
       <Navbar loggedIn={props.loggedIn} />
       {isLoggedIn()}
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+          <Home user={props.user} />
+        </Route>
         <Route
           exact
           path="/login"
