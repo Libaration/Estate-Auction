@@ -10,13 +10,18 @@ import {
   logoutUser,
 } from './actions/usersAction';
 import { PrivateRoute } from './components/PrivateRoute';
+import { useEffect } from 'react';
 
 function App(props) {
-  const isLoggedIn = () => {
-    if (localStorage.getItem('token') === null) {
-      return <Redirect to="/login" />;
-    } else {
+  useEffect(() => {
+    if (localStorage.token && props.loggedIn === false) {
       props.authenticateToken(localStorage.getItem('token'));
+    }
+  }, [props]);
+
+  const isLoggedIn = () => {
+    if (props.loggedIn === false) {
+      return <Redirect to="/login" />;
     }
   };
   return (
@@ -28,9 +33,7 @@ function App(props) {
         <Route
           exact
           path="/login"
-          component={() => {
-            return <Login fetchLogin={props.fetchLogin} />;
-          }}
+          render={(fetchLogin) => <Login fetchLogin={props.fetchLogin} />}
         />
         <PrivateRoute
           path="/logout"
@@ -46,6 +49,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     loggedIn: state.user.loggedIn,
+    user: state.user,
   };
 };
 

@@ -10,7 +10,7 @@ class Login extends Component {
     };
   }
   componentDidMount() {
-    if (localStorage.getItem('token') !== null) {
+    if (typeof localStorage.token !== 'undefined') {
       this.props.history.push('/');
     }
   }
@@ -46,6 +46,7 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.fetchLogin(this.state);
+    this.props.history.push('/');
   };
 }
 
