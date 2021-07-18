@@ -11,7 +11,7 @@ export default class Login extends Component {
   render() {
     return (
       <>
-        <form>
+        <form onSubmit={(event) => this.handleSubmit(event)}>
           <input
             type="text"
             name="username"
@@ -34,5 +34,10 @@ export default class Login extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.fetchLogin(this.state);
   };
 }

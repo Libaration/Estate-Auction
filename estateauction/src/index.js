@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import usersReducer from './reducers/usersReducer';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+let rootReducer = combineReducers({
+  user: usersReducer,
+});
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
