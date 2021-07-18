@@ -7,9 +7,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import usersReducer from './reducers/usersReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import homesReducer from './reducers/homesReducer';
 
 let rootReducer = combineReducers({
   user: usersReducer,
+  homes: homesReducer,
 });
 
 const store = createStore(

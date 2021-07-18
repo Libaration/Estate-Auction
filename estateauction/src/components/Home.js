@@ -1,9 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
-const Home = (props) => {
-  const { user } = props;
-  return <div>Welcome {user.username}</div>;
-};
-
-export default Home;
+export default function Home(props) {
+  const { home } = props;
+  return <div className="homeCard">{home.address}</div>;
+}
