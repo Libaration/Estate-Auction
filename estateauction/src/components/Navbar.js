@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <div className="nav">
-      <Link to="/login">Login</Link>
+      {props.loggedIn ? (
+        <Link to="/logout">Logout</Link>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -8,6 +9,12 @@ export default class Login extends Component {
       password: '',
     };
   }
+  componentDidMount() {
+    if (localStorage.getItem('token') !== null) {
+      this.props.history.push('/');
+    }
+  }
+
   render() {
     return (
       <>
@@ -41,3 +48,5 @@ export default class Login extends Component {
     this.props.fetchLogin(this.state);
   };
 }
+
+export default withRouter(Login);

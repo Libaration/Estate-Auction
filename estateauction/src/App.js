@@ -1,24 +1,56 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import { connect } from 'react-redux';
-import { fetchLogin } from './actions/usersAction';
+import {
+  fetchLogin,
+  authenticateToken,
+  logoutUser,
+} from './actions/usersAction';
+import { PrivateRoute } from './components/PrivateRoute';
 
 function App(props) {
+  const isLoggedIn = () => {
+    if (localStorage.getItem('token') === null) {
+      return <Redirect to="/login" />;
+    } else {
+      props.authenticateToken(localStorage.getItem('token'));
+    }
+  };
   return (
     <div className="App">
-      <Navbar />
+      <Navbar loggedIn={props.loggedIn} />
+      {isLoggedIn()}
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route exact path="/" component={Home} />
         <Route
+          exact
           path="/login"
-          component={() => <Login fetchLogin={props.fetchLogin} />}
+          component={() => {
+            return <Login fetchLogin={props.fetchLogin} />;
+          }}
+        />
+        <PrivateRoute
+          path="/logout"
+          component={() => {
+            props.logoutUser();
+            return <Redirect to="/" />;
+          }}
         />
       </Switch>
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.user.loggedIn,
+  };
+};
 
-export default connect(null, { fetchLogin })(App);
+export default connect(mapStateToProps, {
+  fetchLogin,
+  authenticateToken,
+  logoutUser,
+})(App);
