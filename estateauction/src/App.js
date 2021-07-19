@@ -29,9 +29,7 @@ function App(props) {
       <Navbar loggedIn={props.loggedIn} />
       {isLoggedIn()}
       <Switch>
-        <Route exact path="/">
-          <HomeContainer />
-        </Route>
+        <PrivateRoute exact path="/" component={HomeContainer} />
         <Route
           exact
           path="/login"
