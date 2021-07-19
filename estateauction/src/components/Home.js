@@ -11,6 +11,8 @@ export default function Home(props) {
         <b>List Price:</b> {home.price}
         <br />
         <b>Bathrooms:</b> {home.bathrooms}
+        <br />
+        <b>Bedrooms:</b> {home.bedrooms}
       </div>
     </div>
   );
