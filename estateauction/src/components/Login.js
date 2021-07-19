@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
+import logo from '../logo.png';
 
 class Login extends Component {
   constructor() {
@@ -19,6 +20,8 @@ class Login extends Component {
     return (
       <>
         <div className="sideText">
+          <img src={logo} alt="logo" />
+          <br></br>
           Buy or Sell Residential and Commercial Real Estate. Leaders in Online
           Real Estate Auction Services. Search Properties on estate auction
         </div>

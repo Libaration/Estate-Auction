@@ -135,12 +135,13 @@ input:focus {
 }
 .sideText {
   overflow: hidden;
-  top: 35%;
+  top: 23%;
   right: 53%;
   position: absolute;
   z-index: 1;
   height: 300px;
   width: 300px;
+  text-align: center;
 }
 .loginButton {
   margin-top: 50px;
@@ -161,4 +162,9 @@ input:focus {
 .loginButton:hover {
   background-color: black;
   color: white;
+}
+
+.sideText img {
+  height: 200px;
+  width: auto;
 }
