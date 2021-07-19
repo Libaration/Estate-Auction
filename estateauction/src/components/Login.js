@@ -5,8 +5,8 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: '',
+      username: 'username',
+      password: 'password',
     };
   }
   componentDidMount() {
@@ -18,21 +18,34 @@ class Login extends Component {
   render() {
     return (
       <>
-        <form onSubmit={(event) => this.handleSubmit(event)}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.username}
-            onChange={(event) => this.handleChange(event)}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={(event) => this.handleChange(event)}
-          />
-          <input type="submit" value="Login" />
-        </form>
+        <div className="sideText">
+          Buy or Sell Residential and Commercial Real Estate. Leaders in Online
+          Real Estate Auction Services. Search Properties on estate auction
+        </div>
+        <div className="bgHeader"></div>
+        <div className="field">
+          <form id="form_login" onSubmit={(event) => this.handleSubmit(event)}>
+            <input
+              type="text"
+              name="username"
+              autoComplete="off"
+              value={this.state.username}
+              onChange={(event) => this.handleChange(event)}
+            />
+            <br />
+
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={(event) => this.handleChange(event)}
+            />
+            <br />
+            <button type="submit" class="loginButton">
+              Login
+            </button>
+          </form>
+        </div>
       </>
     );
   }
