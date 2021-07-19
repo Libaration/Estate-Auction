@@ -11,7 +11,7 @@ class HomeContainer extends Component {
     return (
       <div className="homesContainer">
         {this.props.homes.loading === true ? (
-          'loading'
+          'loading.......'
         ) : (
           <HomeList homes={this.props.homes} />
         )}

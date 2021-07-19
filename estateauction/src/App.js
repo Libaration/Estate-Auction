@@ -18,31 +18,23 @@ function App(props) {
       props.authenticateToken(localStorage.getItem('token'));
     }
   }, [props]);
-
-  const isLoggedIn = () => {
-    if (props.loggedIn === false) {
-      return <Redirect to="/login" />;
-    }
-  };
   return (
     <div className="App">
       <Navbar loggedIn={props.loggedIn} />
-      {isLoggedIn()}
-      <Switch>
-        <PrivateRoute exact path="/" component={HomeContainer} />
-        <Route
-          exact
-          path="/login"
-          render={(fetchLogin) => <Login fetchLogin={props.fetchLogin} />}
-        />
-        <PrivateRoute
-          path="/logout"
-          component={() => {
-            props.logoutUser();
-            return <Redirect to="/" />;
-          }}
-        />
-      </Switch>
+      <PrivateRoute exact path="/homes" component={HomeContainer} />
+      <Route
+        exact
+        path="/login"
+        render={(fetchLogin) => <Login fetchLogin={props.fetchLogin} />}
+      />
+      <PrivateRoute
+        exact
+        path="/logout"
+        component={() => {
+          props.logoutUser();
+          return <Redirect to="/" />;
+        }}
+      />
     </div>
   );
 }

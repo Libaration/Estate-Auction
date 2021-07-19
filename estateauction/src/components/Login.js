@@ -10,9 +10,10 @@ class Login extends Component {
       password: 'password',
     };
   }
-  componentDidMount() {
-    if (typeof localStorage.token !== 'undefined') {
-      this.props.history.push('/');
+
+  componentDidUpdate() {
+    if (localStorage.hasOwnProperty('token')) {
+      this.props.history.push('/homes');
     }
   }
 
@@ -62,7 +63,6 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.fetchLogin(this.state);
-    this.props.history.push('/');
   };
 }
 
