@@ -6,7 +6,7 @@ export default function Home(props) {
     <div className="homeCard">
       <img src={home.url} alt="home" />
       <br />
-      <div className="imgCaption">
+      <div className="caption">
         Address: {home.address}
         <br />
         List Price: {home.price}

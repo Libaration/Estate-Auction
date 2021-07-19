@@ -36,16 +36,17 @@ a:visited {
   height: 50px;
 }
 .homesContainer {
+  height: 100%;
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 
 .homeCard {
-  border: 1px solid #d3d3d3;
-  border-radius: 0.25rem;
-  background-color: #2a2f33;
-  width: 500px;
+  /* border: 1px solid #d3d3d3;
+  border-radius: 0.25rem; */
+  /* background-color: #2a2f33; */
+  width: 100%;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -62,4 +63,29 @@ a:visited {
   width: 100%;
   background-position: center;
   background-color: #ccc;
+  opacity: 1;
+  display: block;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.caption {
+  opacity: 0;
+  margin-top: -18px;
+  /* background-color: #2a2f33; */
+  width: 100%;
+  position: relative;
+  top: -300px;
+}
+.homeCard:hover {
+  background-color: #2a2f33;
+}
+.homeCard:hover img {
+  opacity: 0.3;
+}
+
+.homeCard:hover .caption {
+  opacity: 1;
+  transition: 0.5s ease;
 }
