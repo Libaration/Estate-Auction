@@ -5,13 +5,12 @@ export default function Home(props) {
   return (
     <div className="homeCard">
       <img src={home.url} alt="home" />
-      <br />
       <div className="caption">
-        Address: {home.address}
+        <b>Address:</b> {home.address}
         <br />
-        List Price: {home.price}
+        <b>List Price:</b> {home.price}
         <br />
-        Bathrooms: {home.bathrooms}
+        <b>Bathrooms:</b> {home.bathrooms}
       </div>
     </div>
   );

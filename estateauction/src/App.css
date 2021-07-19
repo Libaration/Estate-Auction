@@ -1,18 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,800&display=swap');
+
 body,
 html {
   height: 100%;
   width: 100%;
-  font-family: 'Arimo', sans-serif;
-  color: white;
+  font-family: 'Karla', sans-serif;
+  color: rgba(255, 255, 255, 0.918);
   font-weight: bold;
 }
 body {
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(255, 255, 255),
-    rgb(221, 221, 221)
-  );
   width: 100vw;
   height: 100vh;
 }
@@ -32,60 +28,51 @@ a:visited {
   font-weight: bold;
   font-size: 18px;
   text-align: right;
-
-  height: 50px;
-}
-.homesContainer {
-  height: 100%;
   padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  height: 40px;
 }
 
-.homeCard {
-  /* border: 1px solid #d3d3d3;
-  border-radius: 0.25rem; */
-  /* background-color: #2a2f33; */
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: 0px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
 }
 
-.homeCard * {
-  box-sizing: border-box;
-  transition: all 0.45s ease;
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+
+  margin-bottom: -3px;
 }
 
 .homeCard img {
-  background-size: cover;
-  min-height: 180px;
-  width: 100%;
-  background-position: center;
-  background-color: #ccc;
-  opacity: 1;
-  display: block;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
+  max-width: 500px;
+  max-height: 700px;
+}
+
+.homeCard:hover img {
+  opacity: 0.5;
+  transition: all 0.3s;
 }
 
 .caption {
-  opacity: 0;
-  margin-top: -18px;
-  /* background-color: #2a2f33; */
-  width: 100%;
-  position: relative;
-  top: -300px;
-}
-.homeCard:hover {
-  background-color: #2a2f33;
-}
-.homeCard:hover img {
-  opacity: 0.3;
+  color: black;
+  padding-bottom: 10px;
+  font-weight: normal;
 }
 
-.homeCard:hover .caption {
-  opacity: 1;
-  transition: 0.5s ease;
+.homeContainer {
+  width: 100vw;
+  height: 10vh;
+}
+.homeCard {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
