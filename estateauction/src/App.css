@@ -4,11 +4,15 @@ html {
   height: 100%;
   width: 100%;
   font-family: 'Arimo', sans-serif;
-  color: #168758;
+  color: white;
   font-weight: bold;
 }
 body {
-  background-image: linear-gradient(to bottom right, #cfeeff, #cfeeff);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(221, 221, 221)
+  );
   width: 100vw;
   height: 100vh;
 }
@@ -34,15 +38,22 @@ a:visited {
 .homesContainer {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 
 .homeCard {
   border: 1px solid #d3d3d3;
   border-radius: 0.25rem;
-  background-color: white;
-  width: 300px;
+  background-color: #2a2f33;
+  width: 500px;
   text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.homeCard * {
+  box-sizing: border-box;
+  transition: all 0.45s ease;
 }
 
 .homeCard img {
@@ -51,7 +62,4 @@ a:visited {
   width: 100%;
   background-position: center;
   background-color: #ccc;
-}
-
-.imgCaption {
 }
