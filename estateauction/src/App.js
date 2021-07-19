@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import Login from './components/Login';
 import { connect } from 'react-redux';

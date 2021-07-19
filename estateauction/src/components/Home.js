@@ -1,4 +1,5 @@
 import React from 'react';
+import numberWithCommas from '../helpers/numbersHelper';
 
 export default function Home(props) {
   const { home } = props;
@@ -6,13 +7,7 @@ export default function Home(props) {
     <div className="homeCard">
       <img src={home.url} alt="home" />
       <div className="caption">
-        <b>Address:</b> {home.address}
-        <br />
-        <b>List Price:</b> {home.price}
-        <br />
-        <b>Bathrooms:</b> {home.bathrooms}
-        <br />
-        <b>Bedrooms:</b> {home.bedrooms}
+        <b>Current Bid:</b> {numberWithCommas(home.bid)}
       </div>
     </div>
   );
