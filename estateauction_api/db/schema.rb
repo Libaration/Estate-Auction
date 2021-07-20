@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_075100) do
+ActiveRecord::Schema.define(version: 2021_07_20_090201) do
 
   create_table "homes", force: :cascade do |t|
     t.string "address"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_07_19_075100) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "bedrooms"
     t.integer "bid"
+    t.string "zoning"
+    t.text "details"
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
 

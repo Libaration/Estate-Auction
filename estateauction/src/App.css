@@ -248,13 +248,50 @@ body .homeShowField {
   align-items: center;
 
   position: absolute;
-  right: 45em;
-  width: 250px;
+  right: 838px;
+  width: 415px;
   color: black;
   top: 2em;
   flex-wrap: wrap;
-  row-gap: 50px;
+  row-gap: 20px;
+
+  text-align: start;
 }
 .homeDetails span {
   padding-left: 15px;
+}
+.detailsText {
+  font-size: 16px;
+}
+.detailsIcons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 240px;
+  padding-left: 25%;
+
+  height: 300px;
+}
+
+.homeDetails .detailsMoreText {
+  padding-top: 10px;
+  font-size: 12px;
+}
+.homeShowCard .embedMap {
+  position: absolute;
+  bottom: -170px;
+  right: 2px;
+  filter: none;
+  box-shadow: none;
+  margin-bottom: -13px;
+  padding-bottom: 15px;
+}
+.homeShowPicture img {
+  max-height: 576px;
+  max-width: 768px;
+  object-fit: cover;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.homeShowPicture {
+  padding-top: 50px;
 }
