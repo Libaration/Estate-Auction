@@ -124,13 +124,13 @@ input:focus {
   height: 90%;
   width: 100%;
   position: absolute;
-  background-image: url('https://vistapointe.net/images/interior-8.jpg');
+  background-image: url('https://i.gyazo.com/539f34afb677588b451d574006ee6ad0.jpg');
   background-size: cover;
   opacity: 1;
 }
 .sideText {
   overflow: hidden;
-  top: 23%;
+  top: 14%;
   right: 53%;
   position: absolute;
   z-index: 1;
