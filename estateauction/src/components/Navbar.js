@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icon from '../icon.png';
 
 const Navbar = (props) => {
   return (
     <div className="nav">
-      <div className="header">estate auction</div>
+      <div className="sideLogo">
+        <img src={icon} alt="logo-icon" />
+      </div>
+      <div className="header"></div>
       {props.loggedIn ? (
         <Link to="/logout">Logout</Link>
       ) : (

@@ -9,13 +9,13 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <div className="homesContainer">
+      <>
         {this.props.homes.loading === true ? (
-          'loading.......'
+          ''
         ) : (
           <HomeList homes={this.props.homes} />
         )}
-      </div>
+      </>
     );
   }
 }

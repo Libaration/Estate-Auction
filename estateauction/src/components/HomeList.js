@@ -1,31 +1,27 @@
 import React from 'react';
 import Home from '../components/Home';
 import { withRouter } from 'react-router';
-import Masonry from 'react-masonry-css';
-import FadeIn from 'react-fade-in';
+import { motion } from 'framer-motion';
 function HomeList(props) {
   const renderHomes = () => {
     const { homes } = props.homes;
     return homes.map((home) => {
       return (
-        <FadeIn>
-          <div key={home.id}>
-            <Home home={home} key={home.id} />
-          </div>
-        </FadeIn>
+        <>
+          <Home home={home} key={home.id} />
+        </>
       );
     });
   };
 
   return (
-    // <Masonry
-    //   breakpointCols={3}
-    //   className="my-masonry-grid"
-    //   columnClassName="my-masonry-grid_column"
-    // >
-
-    <>{renderHomes()}</>
-    /* </Masonry> */
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, y: 15 }}
+      transition={{ duration: 0.1 }}
+    >
+      <div className="homesContainer">{renderHomes()}</div>
+    </motion.div>
   );
 }
 
