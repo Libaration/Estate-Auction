@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from '../components/Home';
+import { withRouter } from 'react-router';
 import Masonry from 'react-masonry-css';
-
-export default function HomeList(props) {
+function HomeList(props) {
   const renderHomes = () => {
     const { homes } = props.homes;
     return homes.map((home) => {
@@ -15,12 +15,15 @@ export default function HomeList(props) {
   };
 
   return (
-    <Masonry
-      breakpointCols={3}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
-      {renderHomes()}
-    </Masonry>
+    // <Masonry
+    //   breakpointCols={3}
+    //   className="my-masonry-grid"
+    //   columnClassName="my-masonry-grid_column"
+    // >
+
+    <>{renderHomes()}</>
+    /* </Masonry> */
   );
 }
+
+export default withRouter(HomeList);

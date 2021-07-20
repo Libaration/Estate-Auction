@@ -4,6 +4,8 @@ const homesReducer = (state = { homes: [], loading: false }, action) => {
       return { ...state, loading: true };
     case 'FETCH_HOMES':
       return { homes: [...action.payload], loading: false };
+    case 'FETCH_HOME':
+      return { homes: [action.payload], loading: false };
     default:
       return state;
   }

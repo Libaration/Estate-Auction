@@ -23,6 +23,7 @@ class Login extends Component {
         <div className="sideText">
           <img src={logo} alt="logo" />
           <br></br>
+          <br></br>
           Buy or Sell Residential and Commercial Real Estate. Leaders in Online
           Real Estate Auction Services. Search Properties on estate auction
         </div>

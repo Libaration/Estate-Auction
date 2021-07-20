@@ -1,7 +1,8 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
+import HomeShow from './components/HomeShow';
 import Login from './components/Login';
 import { connect } from 'react-redux';
 import {
@@ -21,7 +22,6 @@ function App(props) {
   return (
     <div className="App">
       <Navbar loggedIn={props.loggedIn} />
-      <PrivateRoute exact path="/homes" component={HomeContainer} />
       <Route
         exact
         path="/login"
@@ -35,6 +35,12 @@ function App(props) {
           return <Redirect to="/" />;
         }}
       />
+      <Switch>
+        <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
+        <PrivateRoute exact path="/homes" component={HomeContainer} />
+      </Switch>
+
+      <Route exact path="/" component={() => <div>HOMEHOMEHOMEHOME</div>} />
     </div>
   );
 }

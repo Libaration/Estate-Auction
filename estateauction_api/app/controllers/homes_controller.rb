@@ -9,4 +9,10 @@ class HomesController < ApplicationController
         end
         render json: @homes
     end
+
+    def show 
+        @home = Home.find(params[:id])
+
+        render json: @home
+    end
 end

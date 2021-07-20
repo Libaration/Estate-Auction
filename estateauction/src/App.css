@@ -20,6 +20,7 @@ body {
   font-size: 25px;
   text-decoration: underline;
   padding-right: 0px;
+  padding-top: 20px;
 }
 a:link {
   color: black;
@@ -35,16 +36,16 @@ a:visited {
   font-weight: bold;
   font-size: 18px;
   text-align: right;
-  padding-bottom: 20px;
+
   padding-right: 20px;
-  height: 40px;
+  height: 80px;
 }
 
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin-left: 0px; /* gutter size offset */
+  margin-left: -30px; /* gutter size offset */
   width: auto;
 }
 .my-masonry-grid_column {
@@ -59,20 +60,14 @@ a:visited {
   margin-bottom: -3px;
 }
 
-.homeCard img {
+/* .homeCard img {
   max-width: 500px;
   max-height: 700px;
-}
+} */
 
 .homeCard:hover img {
-  opacity: 0.5;
+  filter: brightness(50%);
   transition: all 0.3s;
-}
-
-.caption {
-  color: black;
-  padding-bottom: 10px;
-  font-weight: normal;
 }
 
 .homeContainer {
@@ -142,6 +137,7 @@ input:focus {
   height: 300px;
   width: 300px;
   text-align: center;
+  font-weight: normal;
 }
 .loginButton {
   margin-top: 50px;
@@ -167,4 +163,38 @@ input:focus {
 .sideText img {
   height: 200px;
   width: auto;
+}
+
+.homesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px);
+  width: 100%;
+  justify-items: end;
+  gap: 2%;
+  /* padding-left: 55px; */
+  margin-left: 55px;
+  padding-bottom: 100px;
+}
+
+.homeCard {
+  border-radius: 20px;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+
+.homeCard img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.caption {
+  color: black;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.caption span {
+  color: green;
 }
