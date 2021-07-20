@@ -102,7 +102,8 @@ input:focus {
   margin: auto;
   width: 50%;
   padding: 10px;
-  background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61);
+  /* background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61); */
+  background-image: linear-gradient(to bottom right, #f5cac3, #84a59d);
   opacity: 1;
   width: 400px;
   height: 400px;
@@ -209,19 +210,21 @@ body .homeShowField {
   margin: auto;
   width: 50%;
   padding: 10px;
-  background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61);
+  /* background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61); */
+  background-image: linear-gradient(to bottom right, #f5cac3, #ffffff);
   opacity: 1;
   width: 800px;
   height: 700px;
   border-radius: 8px;
   position: relative;
   margin-top: 3%;
-  filter: drop-shadow(0 0 30px #333);
+  filter: drop-shadow(0 0 20px #333);
   border-left: 450px solid rgb(255, 255, 255);
   color: white;
   text-align: center;
   font-weight: normal;
   font-size: 20px;
+  left: 20px;
 }
 
 .sideLogo img {
@@ -294,4 +297,37 @@ body .homeShowField {
 }
 .homeShowPicture {
   padding-top: 50px;
+}
+
+.sideNav {
+  background-color: white;
+  width: 12em;
+  height: 77%;
+  top: 119px;
+  position: fixed;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+  opacity: 1;
+}
+.sideNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 10px;
+  padding-left: 15px;
+  padding-top: 30px;
+  color: black;
+  text-decoration: underline;
+}
+
+.menuIcon {
+  position: absolute;
+  cursor: pointer;
+  left: -22em;
+  display: block;
+  z-index: 1;
+  color: black;
 }

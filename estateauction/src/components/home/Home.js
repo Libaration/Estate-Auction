@@ -1,5 +1,5 @@
 import React from 'react';
-import numberWithCommas from '../helpers/numbersHelper';
+import numberWithCommas from '../../helpers/numbersHelper';
 import { Link } from 'react-router-dom';
 
 export default function Home(props) {
