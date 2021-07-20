@@ -239,5 +239,22 @@ body .homeShowField {
   padding: 5px;
   margin-bottom: 10px;
   margin-top: 2px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.homeDetails img {
+  height: 64px;
+}
+.homeDetails {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  right: 45em;
+  width: 250px;
+  color: black;
+  top: 2em;
+  flex-wrap: wrap;
+  row-gap: 50px;
+}
+.homeDetails span {
+  padding-left: 15px;
 }
