@@ -25,10 +25,10 @@ class HomeShow extends Component {
   render() {
     return (
       <motion.div
-        transition={{ duration: 0.1 }}
-        animate={{ scale: 1 }}
-        initial={{ scale: 0 }}
-        exit={{ scale: 0 }}
+        transition={{ duration: 0.2 }}
+        animate={{ x: 0 }}
+        initial={{ x: 1500 }}
+        exit={{ x: -1500 }}
       >
         <SideNav />
         <div className="homeShowField">

@@ -16,6 +16,9 @@ body {
   background-repeat: no-repeat;
   background-size: fill;
   background-attachment: fixed;
+  font-family: 'Karla', sans-serif;
+  color: black;
+  font-weight: normal;
 }
 
 html {
@@ -148,11 +151,59 @@ input:focus {
 .loginButton:hover {
   background-color: black;
   color: white;
+  animation: wiggle 0.9s infinite;
 }
 
 .sideText img {
   height: 200px;
   width: auto;
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes textWiggle {
+  0% {
+    transform: rotate(0.2deg);
+  }
+  25% {
+    transform: rotate(-0.2deg);
+  }
+  50% {
+    transform: rotate(0.2deg);
+  }
+  75% {
+    transform: rotate(-0.2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes bidWiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(5deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* .homesContainer {
@@ -189,18 +240,12 @@ input:focus {
   color: green;
 } */
 
-.caption {
-}
-
 .homesContainer {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 500px);
   grid-gap: 10px;
   justify-content: center;
-}
-
-.homeCards {
 }
 
 .card {
@@ -211,8 +256,6 @@ input:focus {
   box-shadow: 0 8px 10px rgb(0 0 0 / 0.5);
   border-radius: 5px;
   background-color: white;
-
-  opacity: 0.9;
 }
 
 .bidDetails {
@@ -338,7 +381,7 @@ body .homeShowField {
   border-bottom-right-radius: 5px;
   z-index: 1;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
-  opacity: 1;
+  opacity: 0;
   left: -200px;
 
   transition: all 0.3s ease;
@@ -365,38 +408,69 @@ body .homeShowField {
   z-index: 2;
   color: black;
 }
+/* .card img:hover {
+  transform: scale(1.5);
+} */
 
-.cardIcons img {
-  height: 20px;
-  width: 20px;
-  box-shadow: none;
-}
-.cardIcons {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  margin-right: 50px;
-  margin-left: 15px;
-  margin-top: 120px;
-  float: right;
-}
-
-.cardIcons > img {
-  margin: 2px;
+.homeShowCard input[type='text'],
+input[type='datetime-local'] {
+  width: 600px;
+  background: #fff;
+  color: white;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  background-image: linear-gradient(to bottom right, #acb6e5, #8bc9bd);
 }
 
-.cardIconText {
-  float: right;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 13px;
+.homeShowCard input[type='text']:hover {
+  animation: textWiggle 1s;
+}
+.homeShowCard input[type='datetime-local']:hover {
+  animation: textWiggle 1s;
 }
 
-.homesContainer img:nth-of-type(2n) {
-  margin-bottom: 0px;
+.homeShowCard .labelText {
+  text-align: start;
+  padding-left: 80px;
+  font-size: 12px;
+  margin-bottom: -20px;
+  color: black;
 }
-.homesContainer img:nth-of-type(3n) {
-  margin-bottom: 0px;
+
+.addButton {
+  margin-top: 30px;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  transition: 220ms all ease-in-out;
+  animation: bidWiggle 2.5s infinite;
+}
+.addButton:hover {
+  background-color: black;
+  color: white;
+}
+.inputIcon img {
+  height: 23px;
+  right: 110px;
+  padding-top: 36px;
+  position: absolute;
+  z-index: 1;
+}
+
+.homeShowCard form {
+  margin-top: 20px;
 }

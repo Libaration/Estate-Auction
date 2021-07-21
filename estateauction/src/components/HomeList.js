@@ -8,7 +8,12 @@ function HomeList(props) {
     return homes.map((home) => {
       return (
         <div className="homeCards">
+          {/* <motion.div
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.1 }}
+          > */}
           <Home home={home} key={home.id} />
+          {/* </motion.div> */}
         </div>
       );
     });

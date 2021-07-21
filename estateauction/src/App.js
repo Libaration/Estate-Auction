@@ -6,6 +6,7 @@ import HomeShow from './components/HomeShow';
 import Login from './components/Login';
 import { connect } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
+import AddHome from './components/AddHome';
 
 import {
   fetchLogin,
@@ -26,11 +27,6 @@ function App(props) {
     <div className="App">
       <Navbar loggedIn={props.loggedIn} />
 
-      <Route
-        exact
-        path="/login"
-        render={(fetchLogin) => <Login fetchLogin={props.fetchLogin} />}
-      />
       <PrivateRoute
         exact
         path="/logout"
@@ -40,7 +36,13 @@ function App(props) {
         }}
       />
       <AnimatePresence>
+        <Route
+          exact
+          path="/login"
+          render={(fetchLogin) => <Login fetchLogin={props.fetchLogin} />}
+        />
         <Switch location={location} key={location.pathname}>
+          <PrivateRoute exact path="/homes/add" component={AddHome} />
           <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
 
