@@ -7,9 +7,9 @@ function HomeList(props) {
     const { homes } = props.homes;
     return homes.map((home) => {
       return (
-        <>
+        <div className="homeCards">
           <Home home={home} key={home.id} />
-        </>
+        </div>
       );
     });
   };

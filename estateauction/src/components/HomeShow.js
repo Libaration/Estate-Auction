@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { fetchHome } from '../actions/homesAction';
 import { motion } from 'framer-motion';
 import SideNav from './SideNav';
-import Hamburger from 'hamburger-react';
 import HomeDetails from './home/HomeDetails';
 import HomeMap from './home/HomeMap';
 
@@ -17,17 +16,6 @@ class HomeShow extends Component {
 
     return (
       <div className="homeShowCard">
-        <div className="menuIcon">
-          <Hamburger
-            onToggle={(toggled) => {
-              if (toggled) {
-                ///ok
-              } else {
-                // close a menu
-              }
-            }}
-          />
-        </div>
         <HomeDetails home={home} />
         <HomeMap home={home} />
       </div>
