@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import AddHome from './components/AddHome';
 import SideNav from './components/SideNav';
+import Landing from './components/Landing';
 
 import {
   fetchLogin,
@@ -47,7 +48,7 @@ function App(props) {
           <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
 
-          <Route exact path="/" component={() => <div>HOMEHOMEHOMEHOME</div>} />
+          <Route exact path="/" component={Landing} />
         </Switch>
       </AnimatePresence>
     </div>
