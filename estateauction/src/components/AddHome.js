@@ -24,10 +24,10 @@ export default class AddHome extends Component {
     const today = moment().format(moment.HTML5_FMT.DATETIME_LOCAL);
     return (
       <motion.div
-        transition={{ duration: 0.2 }}
-        animate={{ x: 0 }}
-        initial={{ x: 1500 }}
-        exit={{ x: 1500 }}
+        transition={{ duration: 0.1 }}
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+        exit={{ scale: 0 }}
       >
         <SideNav />
         <div className="homeShowField">
