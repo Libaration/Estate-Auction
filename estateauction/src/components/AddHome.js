@@ -7,6 +7,7 @@ import address from '../icons/address.png';
 import image from '../icons/image.png';
 import { motion } from 'framer-motion';
 import SideNav from './SideNav';
+import skyscraper from '../icons/skyscraper.png';
 
 export default class AddHome extends Component {
   constructor() {
@@ -29,7 +30,6 @@ export default class AddHome extends Component {
         initial={{ scale: 0 }}
         exit={{ scale: 0 }}
       >
-        <SideNav />
         <div className="homeShowField">
           <div className="homeShowCard">
             <form>
@@ -68,6 +68,9 @@ export default class AddHome extends Component {
               <br />
               <button className="addButton">List Home</button>
             </form>
+          </div>
+          <div className="skyscraper">
+            <img src={skyscraper} alt="skyscraper" />
           </div>
         </div>
       </motion.div>

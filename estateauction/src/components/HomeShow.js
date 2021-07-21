@@ -30,7 +30,6 @@ class HomeShow extends Component {
         initial={{ scale: 0 }}
         exit={{ scale: 0 }}
       >
-        <SideNav />
         <div className="homeShowField">
           {this.props.homes.homes.length > 0
             ? this.renderHome()

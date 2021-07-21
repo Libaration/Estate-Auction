@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Spin as Hamburger } from 'hamburger-react';
 import { useRef } from 'react';
 
-export default function SideNav() {
+export default function SideNav(props) {
   const sideNavRef = useRef();
 
   return (
@@ -28,6 +28,11 @@ export default function SideNav() {
           <Link to="/">Home</Link>
           <Link to="/homes">Auctions</Link>
           <Link to="/homes/add">List New Home</Link>
+          {props.loggedIn ? (
+            <Link to="/logout">Logout</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </div>
       </div>
     </>

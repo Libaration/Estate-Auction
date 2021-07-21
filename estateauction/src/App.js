@@ -7,6 +7,7 @@ import Login from './components/Login';
 import { connect } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import AddHome from './components/AddHome';
+import SideNav from './components/SideNav';
 
 import {
   fetchLogin,
@@ -26,7 +27,7 @@ function App(props) {
   return (
     <div className="App">
       <Navbar loggedIn={props.loggedIn} />
-
+      <SideNav loggedIn={props.loggedIn} />
       <PrivateRoute
         exact
         path="/logout"
