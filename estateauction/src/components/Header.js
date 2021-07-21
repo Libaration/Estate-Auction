@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import icon from '../icon.png';
 import logoText from '../logoText.png';
 
-const Navbar = (props) => {
+const Header = (props) => {
   return (
     <div className="nav">
       <div className="sideLogo">
@@ -16,4 +15,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default Header;

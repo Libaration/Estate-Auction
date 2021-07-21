@@ -6,7 +6,6 @@ import zone from '../icons/zone.png';
 import address from '../icons/address.png';
 import image from '../icons/image.png';
 import { motion } from 'framer-motion';
-import SideNav from './SideNav';
 import skyscraper from '../icons/skyscraper.png';
 
 export default class AddHome extends Component {

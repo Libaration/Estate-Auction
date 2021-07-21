@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import { Route, Redirect, Switch, useLocation } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import HomeShow from './components/HomeShow';
@@ -26,7 +26,7 @@ function App(props) {
   }, [props]);
   return (
     <div className="App">
-      <Navbar loggedIn={props.loggedIn} />
+      <Header />
       <SideNav loggedIn={props.loggedIn} />
       <PrivateRoute
         exact

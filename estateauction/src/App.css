@@ -12,7 +12,8 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(180deg, #0055ff 0%, rgb(0, 153, 255) 100%);
+  /* background: linear-gradient(180deg, #0055ff 0%, rgb(0, 153, 255) 100%); */
+  background: linear-gradient(180deg, #c9d6ff 0%, #e2e2e2 100%);
   background-repeat: no-repeat;
   background-size: fill;
   background-attachment: fixed;
@@ -283,7 +284,7 @@ body .homeShowField {
   width: 50%;
   padding: 10px;
   /* background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61); */
-  background-image: linear-gradient(to bottom right, #f5cac3, #ffffff);
+  background-image: linear-gradient(to bottom right, #e2e2e2, #c9d6ff);
   opacity: 1;
   width: 800px;
   height: 700px;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchHome } from '../actions/homesAction';
 import { motion } from 'framer-motion';
-import SideNav from './SideNav';
 import HomeDetails from './home/HomeDetails';
 import HomeMap from './home/HomeMap';
 
