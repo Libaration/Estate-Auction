@@ -5,7 +5,7 @@ export default function HomeMap(props) {
 
   const { home } = props;
   return (
-    <div class="embedMap">
+    <div className="embedMap">
       <iframe
         title="map"
         style={{ border: 'none', width: '1266px' }}

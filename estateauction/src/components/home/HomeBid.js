@@ -3,6 +3,7 @@ import cancel from '../../icons/cancel.png';
 import { motion } from 'framer-motion';
 import bidding from '../../icons/bidding.png';
 import { useState } from 'react';
+import dollar from '../../icons/dollar.png';
 
 import numberWithCommas from '../../helpers/numbersHelper';
 export default function HomeBid(props) {
@@ -23,7 +24,7 @@ export default function HomeBid(props) {
   const renderBids = () => {
     return props.home.bids.map((bid) => {
       return (
-        <div className="bidder">
+        <div className="bidder" key={bid.id}>
           <ul>
             <li>
               ${numberWithCommas(bid.amount)} by: {bid.user}
@@ -59,6 +60,9 @@ export default function HomeBid(props) {
           </div>
           Amount:
           <br />
+          <div className="dollarInput">
+            <img src={dollar} alt="dollar" />
+          </div>
           <input
             type="number"
             name="amount"

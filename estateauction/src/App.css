@@ -830,3 +830,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.dollarInput img {
+  height: 16px;
+  position: absolute;
+  top: 75px;
+  left: 70px;
+}
