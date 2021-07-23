@@ -745,3 +745,53 @@ input[type='datetime-local'] {
   bottom: 20em;
   cursor: pointer;
 }
+.bidList {
+  position: absolute;
+  top: -300px;
+  width: 520px;
+  max-height: 300px;
+  left: 0px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.bidder {
+  color: black;
+}
+
+.mostRecent {
+  padding-top: 5px;
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding-left: 35px;
+}
+
+.bidder ul li {
+  font-size: 15px;
+}
+
+.bidder ul {
+  list-style: none;
+  margin-top: -5px;
+}
+.bidder ul li::before {
+  content: '';
+  background-image: url(https://i.gyazo.com/666d6ba15c1fb726440a041cbbb1aa99.png);
+  background-size: contain;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  top: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+.mostRecent img {
+  height: 5em;
+  position: absolute;
+  left: 490px;
+  bottom: -400px;
+}
