@@ -660,3 +660,88 @@ input[type='datetime-local'] {
   right: 50px;
   top: -90px;
 }
+
+.bidOverlay {
+  height: 100vh;
+  padding-top: 100px;
+  width: 100vw;
+  background-color: #000000b9;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.bidCard {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  background-image: linear-gradient(to bottom right, #e8cbc0, #636fa4);
+
+  opacity: 1;
+  width: 500px;
+  height: 125px;
+  border-radius: 8px;
+  position: fixed;
+
+  filter: drop-shadow(0 0 20px #333);
+  border-top: 300px solid rgb(255, 255, 255);
+  color: white;
+
+  font-weight: normal;
+  font-size: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  top: 25%;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 0.5);
+}
+
+.bidCard input {
+  width: 200px;
+  background: #fff;
+  color: white;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 22px 50px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  background-image: linear-gradient(to bottom right, #acb6e5, #8bc9bd);
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 40px;
+}
+
+.bidCard button {
+  margin-top: 30px;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  padding: 0.25em 1em;
+  min-width: 10ch;
+  min-height: 44px;
+  transition: 50ms all ease-in-out;
+  animation: bidWiggle 2.5s infinite;
+}
+
+.bidCard button:hover {
+  background-color: rgb(20, 85, 29);
+  color: white;
+}
+
+.cancelIcon img {
+  height: 32px;
+}
+.cancelIcon {
+  position: absolute;
+  left: -10%;
+  bottom: 20em;
+  cursor: pointer;
+}

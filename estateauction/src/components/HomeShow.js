@@ -4,6 +4,7 @@ import { fetchHomes } from '../actions/homesAction';
 import { motion } from 'framer-motion';
 import HomeDetails from './home/HomeDetails';
 import HomeMap from './home/HomeMap';
+import HomeBid from './home/HomeBid';
 
 class HomeShow extends Component {
   constructor() {
@@ -14,8 +15,17 @@ class HomeShow extends Component {
       },
     };
   }
+
+  toggleVisible = () => {
+    this.setState((prevState) => {
+      return {
+        bidPage: {
+          visible: !prevState.bidPage.visible,
+        },
+      };
+    });
+  };
   componentDidMount() {
-    console.log(this.state);
     const { homeId } = this.props.match.params;
     this.props.fetchHomes(homeId);
   }
@@ -26,11 +36,13 @@ class HomeShow extends Component {
       <div className="homeShowCard">
         <HomeDetails home={home} />
         <HomeMap home={home} />
+        <button onClick={this.toggleVisible}>SHOW BID COMPONENT</button>
       </div>
     );
   };
 
   render() {
+    const home = this.props.homes.homes[0];
     return (
       <motion.div
         transition={{ duration: 0.1 }}
@@ -38,6 +50,11 @@ class HomeShow extends Component {
         initial={{ scale: 0 }}
         exit={{ scale: 0 }}
       >
+        {this.state.bidPage.visible ? (
+          <HomeBid home={home} toggleVisible={this.toggleVisible} />
+        ) : (
+          ''
+        )}
         <div className="homeShowField">
           {this.props.homes.homes.length > 0
             ? this.renderHome()
