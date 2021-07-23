@@ -6,4 +6,5 @@ json.array! @homes do |home|
     json.details home.details
     json.bathrooms home.bathrooms
     json.bedrooms home.bedrooms
+    json.zoning home.zoning
   end

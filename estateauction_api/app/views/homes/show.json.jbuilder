@@ -5,6 +5,7 @@ json.url @home.url
 json.details @home.details
 json.bathrooms @home.bathrooms
 json.bedrooms @home.bedrooms
+json.zoning @home.zoning
 json.bids @home.bids do |bid|
     json.id bid.id
     json.amount bid.amount
