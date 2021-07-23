@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import AddHome from './components/AddHome';
 import SideNav from './components/SideNav';
 import Landing from './components/Landing';
+import { checkLogin } from './helpers/checkLogin';
 
 import {
   fetchLogin,
@@ -21,9 +22,7 @@ import { useEffect } from 'react';
 function App(props) {
   const location = useLocation();
   useEffect(() => {
-    if (localStorage.token && props.loggedIn === false) {
-      props.authenticateToken(localStorage.getItem('token'));
-    }
+    checkLogin(props);
   }, [props]);
   return (
     <div className="App">

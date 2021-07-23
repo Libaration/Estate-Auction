@@ -21,7 +21,7 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { user: state.user, homes: state.homes };
+  return { homes: state.homes };
 };
 
 export default connect(mapStateToProps, { fetchHomes })(HomeContainer);

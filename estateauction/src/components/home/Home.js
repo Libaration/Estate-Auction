@@ -9,7 +9,7 @@ export default function Home(props) {
   return (
     <div className="card">
       <Link to={imageRoute}>
-        <motion.div transition={{ duration: 0.5 }} whileHover={{ scale: 1.4 }}>
+        <motion.div transition={{ duration: 0.5 }} whileHover={{ scale: 1.1 }}>
           <img src={home.url} alt="home" />
         </motion.div>
       </Link>
