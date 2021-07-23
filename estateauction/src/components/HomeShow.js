@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHomes } from '../actions/homesAction';
+import { fetchHomes, placeBid } from '../actions/homesAction';
 import { motion } from 'framer-motion';
 import HomeDetails from './home/HomeDetails';
 import HomeMap from './home/HomeMap';
@@ -34,9 +34,8 @@ class HomeShow extends Component {
 
     return (
       <div className="homeShowCard">
-        <HomeDetails home={home} />
+        <HomeDetails home={home} toggleVisible={this.toggleVisible} />
         <HomeMap home={home} />
-        <button onClick={this.toggleVisible}>SHOW BID COMPONENT</button>
       </div>
     );
   };
@@ -51,7 +50,11 @@ class HomeShow extends Component {
         exit={{ scale: 0 }}
       >
         {this.state.bidPage.visible ? (
-          <HomeBid home={home} toggleVisible={this.toggleVisible} />
+          <HomeBid
+            home={home}
+            toggleVisible={this.toggleVisible}
+            placeBid={this.props.placeBid}
+          />
         ) : (
           ''
         )}
@@ -70,4 +73,4 @@ const mapStateToProps = (state) => {
     homes: state.homes,
   };
 };
-export default connect(mapStateToProps, { fetchHomes })(HomeShow);
+export default connect(mapStateToProps, { fetchHomes, placeBid })(HomeShow);

@@ -11,3 +11,22 @@ export const fetchHomes = (id = 'all') => {
     });
   };
 };
+
+export const placeBid = (homeId, bid) => {
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING' });
+    let response = await fetch(`${API}/${homeId}/bid`, {
+      method: 'POST',
+      body: JSON.stringify({
+        id: homeId,
+        bid: bid,
+      }),
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-type': 'application/json',
+      },
+    });
+    let responseJSON = await response.json();
+    dispatch({ type: 'PLACE_BID', payload: responseJSON });
+  };
+};

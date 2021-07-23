@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index,:show] do
     resources :homes, only: [:index,:create, :show, :destroy]
   end
+  post '/homes/:id/bid', to: 'bids#create', defaults: {format: :json}
 end

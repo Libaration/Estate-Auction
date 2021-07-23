@@ -37,6 +37,11 @@ export default function HomeDetails(props) {
             <br />
             <b>Auction ID:</b> A-000001616
           </div>
+          <div className="detailsBid">
+            <button className="bidNow" onClick={props.toggleVisible}>
+              Bid
+            </button>
+          </div>
         </div>
       </div>{' '}
       <div className="bid">
