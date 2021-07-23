@@ -1,17 +1,13 @@
 const API = 'http://localhost:3030/homes';
-export const fetchHomes = () => {
+export const fetchHomes = (id = 'all') => {
   return async (dispatch) => {
     dispatch({ type: 'LOADING' });
-    let response = await fetch(API);
+    let response =
+      id === 'all' ? await fetch(API) : await fetch(`${API}/${id}`);
     let responseJSON = await response.json();
-    dispatch({ type: 'FETCH_HOMES', payload: responseJSON });
-  };
-};
-export const fetchHome = (id) => {
-  return async (dispatch) => {
-    dispatch({ type: 'LOADING' });
-    let response = await fetch(`${API}/${id}`);
-    let responseJSON = await response.json();
-    dispatch({ type: 'FETCH_HOME', payload: responseJSON });
+    dispatch({
+      type: 'FETCH_HOMES',
+      payload: id === 'all' ? responseJSON : [responseJSON],
+    });
   };
 };

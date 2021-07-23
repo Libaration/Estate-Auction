@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchHome } from '../actions/homesAction';
+import { fetchHomes } from '../actions/homesAction';
 import { motion } from 'framer-motion';
 import HomeDetails from './home/HomeDetails';
 import HomeMap from './home/HomeMap';
 
 class HomeShow extends Component {
+  constructor() {
+    super();
+    this.state = {
+      bidPage: {
+        visible: false,
+      },
+    };
+  }
   componentDidMount() {
+    console.log(this.state);
     const { homeId } = this.props.match.params;
-    this.props.fetchHome(homeId);
+    this.props.fetchHomes(homeId);
   }
   renderHome = () => {
     const home = this.props.homes.homes[0];
@@ -44,4 +53,4 @@ const mapStateToProps = (state) => {
     homes: state.homes,
   };
 };
-export default connect(mapStateToProps, { fetchHome })(HomeShow);
+export default connect(mapStateToProps, { fetchHomes })(HomeShow);
