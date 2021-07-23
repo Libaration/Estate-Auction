@@ -2,6 +2,7 @@ import React from 'react';
 import cancel from '../../icons/cancel.png';
 import { motion } from 'framer-motion';
 export default function HomeBid(props) {
+  const renderBids = () => {};
   return (
     <div className="bidOverlay">
       <motion.div
@@ -18,7 +19,7 @@ export default function HomeBid(props) {
           <br />
           <input type="text" />
           <button>Place Bid</button>
-        </div>{' '}
+        </div>
       </motion.div>
     </div>
   );

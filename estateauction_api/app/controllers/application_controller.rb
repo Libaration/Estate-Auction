@@ -1,5 +1,6 @@
 require 'jwt'
 require_relative '../.token_key.rb'
+
 class ApplicationController < ActionController::API
     def secret_key
         $key
