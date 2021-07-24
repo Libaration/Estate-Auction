@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_073436) do
+ActiveRecord::Schema.define(version: 2021_07_24_001432) do
 
   create_table "bids", force: :cascade do |t|
     t.integer "amount"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_07_23_073436) do
     t.integer "bid"
     t.string "zoning"
     t.text "details"
+    t.string "endDate"
     t.index ["user_id"], name: "index_homes_on_user_id"
   end
 

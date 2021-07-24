@@ -429,7 +429,8 @@ body .homeShowField {
 } */
 
 .homeShowCard input[type='text'],
-input[type='datetime-local'] {
+input[type='datetime-local'],
+input[type='number'] {
   width: 600px;
   background: #fff;
   color: white;

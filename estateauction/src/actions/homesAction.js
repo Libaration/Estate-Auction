@@ -30,3 +30,32 @@ export const placeBid = (homeId, bid) => {
     dispatch({ type: 'PLACE_BID', payload: responseJSON });
   };
 };
+
+export const createHome = ({
+  address,
+  url,
+  endDate,
+  bathrooms,
+  bedrooms,
+  zoning,
+}) => {
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING' });
+    let response = await fetch(`${API}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        address,
+        url,
+        bathrooms,
+        bedrooms,
+        zoning,
+        endDate,
+      }),
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-type': 'application/json',
+      },
+    });
+    let responseJSON = await response.json();
+  };
+};

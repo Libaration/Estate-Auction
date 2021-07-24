@@ -11,8 +11,3 @@ if @home.endDate.present?
 else 
     json.endDate nil
 end
-json.bids @bids.reverse do |bid|
-    json.id bid.id
-    json.amount bid.amount
-    json.user bid.user.username
-end
