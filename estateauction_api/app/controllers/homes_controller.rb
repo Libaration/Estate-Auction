@@ -13,9 +13,7 @@ class HomesController < ApplicationController
     end
 
     def create
-        binding.pry
         @home = current_user.homes.create(home_params(params))
-        
     end
 
     def home_params(params)

@@ -5,8 +5,10 @@ class BidsController < ApplicationController
         @bid = params[:bid].to_i
         @payload = decode(@token)
         @user = User.find(@payload["id"])
+        if @home.endDate > Time.now
         @user.bids.create(amount: @bid, home: @home)
         @home.update(bid: @home.bid + @bid)
+        end
         @bids = @home.bids
       
     end
