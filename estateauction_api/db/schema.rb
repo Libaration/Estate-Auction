@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_001432) do
+ActiveRecord::Schema.define(version: 2021_07_24_022229) do
 
   create_table "bids", force: :cascade do |t|
     t.integer "amount"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_24_001432) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "bedrooms"
-    t.integer "bid"
+    t.integer "bid", default: 0
     t.string "zoning"
     t.text "details"
     t.string "endDate"

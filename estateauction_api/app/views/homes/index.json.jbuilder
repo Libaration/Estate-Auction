@@ -7,4 +7,9 @@ json.array! @homes do |home|
     json.bathrooms home.bathrooms
     json.bedrooms home.bedrooms
     json.zoning home.zoning
+    if home.endDate.present?
+      json.endDate Home.time_to_js(home.endDate)
+  else 
+      json.endDate nil
+  end
   end

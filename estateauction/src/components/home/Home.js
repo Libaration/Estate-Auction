@@ -2,6 +2,7 @@ import React from 'react';
 import numberWithCommas from '../../helpers/numbersHelper';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Countdown from 'react-countdown';
 
 export default function Home(props) {
   const { home } = props;
@@ -17,6 +18,12 @@ export default function Home(props) {
         <div className="bidDetails">
           Current Bid:{' '}
           <span className="bid">${numberWithCommas(home.bid)}</span>
+          <div className="timeRemaining">
+            Time Remaining:{' '}
+            <div className="countdown">
+              <Countdown date={home.endDate} />
+            </div>
+          </div>
           <br />
         </div>
       </div>

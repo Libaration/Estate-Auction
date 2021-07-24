@@ -837,3 +837,14 @@ input::-webkit-inner-spin-button {
   top: 75px;
   left: 70px;
 }
+
+.timeRemaining {
+  text-align: center;
+  font-size: 23px;
+  font-weight: normal;
+  padding-top: 50px;
+}
+
+.countdown {
+  color: red;
+}
