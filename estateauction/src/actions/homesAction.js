@@ -59,3 +59,7 @@ export const createHome = ({
     let responseJSON = await response.json();
   };
 };
+
+export const sortBy = (sortMethod) => {
+  return { type: 'SORT_HOMES', payload: sortMethod };
+};
