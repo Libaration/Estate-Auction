@@ -10,6 +10,7 @@ import AddHome from './components/AddHome';
 import SideNav from './components/SideNav';
 import Landing from './components/Landing';
 import { checkLogin } from './helpers/checkLogin';
+import UserContainer from './containers/UserContainer';
 
 import {
   fetchLogin,
@@ -46,7 +47,7 @@ function App(props) {
           <PrivateRoute exact path="/homes/add" component={AddHome} />
           <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
-
+          <PrivateRoute exact path="/profile" component={UserContainer} />
           <Route exact path="/" component={Landing} />
         </Switch>
       </AnimatePresence>
