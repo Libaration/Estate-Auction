@@ -1,31 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import moment from 'moment';
+import UserDetails from '../components/user/UserDetails';
 
-interface State {
+interface Props {
   user: {
     username: string;
     id: number;
     readonly created_at: string;
+    url: string;
   };
 }
-class UserContainer extends Component<State> {
+
+class UserContainer extends Component<Props> {
   componentDidMount() {}
   render() {
-    const {
-      username,
-      id,
-      created_at,
-    }: { username: string; id: number; created_at: string } = this.props.user;
     return (
       <>
-        <div className="homeShowField">
+        <div className="userShowField">
           <div className="homeShowCard">
-            Member Since: {moment(created_at).format('MM/DD/YYYY')}
-            <br />
-            Username: {username}
-            <br />
-            Member ID: {id}
+            <UserDetails user={this.props.user} />
           </div>
         </div>
       </>
@@ -33,7 +26,7 @@ class UserContainer extends Component<State> {
   }
 }
 
-const mapStateToProps = (state: State) => {
+const mapStateToProps = (state: Props) => {
   return {
     user: state.user,
   };

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             @token = encode({id: @user.id})
-            render json: {user: @user, token: @token}
+           @bids = @user.bids
         else
             render json: {Error: "Incorrect username or password"}
         end
@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
         if @token = request.headers['Authorization']
         @payload = decode(@token)
         @user = User.find(@payload["id"])
-       
-            render json: {user: @user, token: @token}
+        @bids = @user.bids
+            
         else
             render json: {Error: "Invalid JWT token"}
         end

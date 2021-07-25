@@ -869,3 +869,35 @@ input::-webkit-inner-spin-button {
   position: absolute;
   padding-top: 10px;
 }
+
+.avatar img {
+  height: 200px;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.493);
+}
+.avatar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.userShowField {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  /* background-image: linear-gradient(to bottom right, #ff3f6a, #fd5b61); */
+  background-image: linear-gradient(to bottom right, #e2e2e2, #c9d6ff);
+  opacity: 1;
+  width: 800px;
+  height: 700px;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 3%;
+  filter: drop-shadow(0 0 20px #333);
+  border-left: 450px solid rgb(255, 255, 255);
+  color: black;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  left: 20px;
+}

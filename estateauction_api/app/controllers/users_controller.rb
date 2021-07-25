@@ -3,8 +3,8 @@ class UsersController < ApplicationController
         if @token = request.headers['Authorization']
         @payload = decode(@token)
         @user = User.find(@payload["id"])
-        
-            render json: {user: @user, token: @token}
+        @bids = @user.bids
+           
         else
             render json: {Error: "Invalid JWT token"}
         end
