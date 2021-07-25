@@ -6,6 +6,7 @@ json.user do |user|
     json.bids @bids do |bid|
         json.id bid.id
         json.amount bid.amount
+        json.created_at bid.created_at
     end
 end
 json.token @token

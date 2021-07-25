@@ -901,3 +901,24 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
   left: 20px;
 }
+
+.userBidList ul li {
+  font-size: 15px;
+  margin-right: 50px;
+}
+
+.userBidList ul {
+  list-style: none;
+  margin-top: -5px;
+}
+.userBidList ul li::before {
+  content: '';
+  background-image: url(https://i.gyazo.com/666d6ba15c1fb726440a041cbbb1aa99.png);
+  background-size: contain;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  top: 0.4rem;
+  margin-right: 0.5rem;
+}

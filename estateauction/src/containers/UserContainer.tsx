@@ -8,6 +8,7 @@ interface Props {
     id: number;
     readonly created_at: string;
     url: string;
+    bids?: [];
   };
 }
 
