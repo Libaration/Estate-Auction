@@ -11,7 +11,11 @@ interface Props {
     url: string;
     bids?: [];
   };
-  fetchHomes: (id: string | undefined) => void;
+  homes: {
+    id: number;
+    address: string;
+  };
+  fetchHomes: (id: string) => void;
 }
 
 class UserContainer extends Component<Props> {
@@ -25,6 +29,7 @@ class UserContainer extends Component<Props> {
         <div className="userShowField">
           <div className="homeShowCard">
             <UserDetails user={this.props.user} />
+            <div className="myHomes">esdkdnkdnkdnekdnk</div>
           </div>
         </div>
       </>
