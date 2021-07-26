@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserDetails from '../components/user/UserDetails';
+import { fetchHomes } from '../actions/homesAction';
 
 interface Props {
   user: {
@@ -10,10 +11,14 @@ interface Props {
     url: string;
     bids?: [];
   };
+  fetchHomes: (id: string | undefined) => void;
 }
 
 class UserContainer extends Component<Props> {
-  componentDidMount() {}
+  componentDidMount() {
+    const { user } = this.props;
+    this.props.fetchHomes(user.id as unknown as string);
+  }
   render() {
     return (
       <>
@@ -33,4 +38,10 @@ const mapStateToProps = (state: Props) => {
   };
 };
 
-export default connect(mapStateToProps)(UserContainer);
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    fetchHomes: (id: string | undefined) => dispatch(fetchHomes(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
