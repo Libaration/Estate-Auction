@@ -2,11 +2,25 @@ import React from 'react';
 import numberWithCommas from '../../helpers/numbersHelper';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Countdown from 'react-countdown';
+import HomeCountdown from './HomeCountdown';
 
 export default function Home(props) {
+  const renderBids = () => {
+    return (
+      <div className="caption">
+        <div className="bidDetails">
+          Current Bid:{' '}
+          <span className="bid">${numberWithCommas(home.bid)}</span>
+        </div>
+      </div>
+    );
+  };
+  const renderCountdown = () => {
+    return <HomeCountdown home={home} />;
+  };
   const { home } = props;
   const imageRoute = `/homes/${home.id}`;
+  const { viewOptions } = props;
   return (
     <div className="card">
       <Link to={imageRoute}>
@@ -14,19 +28,8 @@ export default function Home(props) {
           <img src={home.url} alt="home" />
         </motion.div>
       </Link>
-      <div className="caption">
-        <div className="bidDetails">
-          Current Bid:{' '}
-          <span className="bid">${numberWithCommas(home.bid)}</span>
-          <div className="timeRemaining">
-            Time Remaining:{' '}
-            <div className="countdown">
-              <Countdown date={home.endDate} />
-            </div>
-          </div>
-          <br />
-        </div>
-      </div>
+      {viewOptions.willShowBids ? renderBids() : ''}
+      {viewOptions.willShowCountdown ? renderCountdown() : ''}
     </div>
   );
 }

@@ -8,7 +8,6 @@ import newbadge from '../icons/newbadge.png';
 import moment from 'moment';
 function HomeList(props) {
   const renderHomes = () => {
-    console.log('renderhomes props', props);
     let homesList;
     switch (props.sortedBy) {
       case 'endingSoon':
@@ -21,7 +20,6 @@ function HomeList(props) {
         };
         break;
       case 'recentlyCreated':
-        console.log('recentlycreated break hit!');
         homesList = {
           homes: props.homes.homes.sort(
             (a, b) =>
@@ -37,7 +35,11 @@ function HomeList(props) {
     return homes.map((home) => {
       return (
         <div className="homeCards" key={home.id}>
-          <Home home={home} key={home.id} />
+          <Home
+            home={home}
+            key={home.id}
+            viewOptions={{ willShowBids: true, willShowCountdown: true }}
+          />
         </div>
       );
     });

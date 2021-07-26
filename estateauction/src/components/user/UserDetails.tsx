@@ -6,7 +6,7 @@ interface UserDetailsProps {
     created_at: string;
     id: number;
     url: string;
-    bids?: [];
+    bids?: [] | null;
   };
 }
 
@@ -17,18 +17,24 @@ interface Bid {
 }
 
 const renderBids = (bids: []) => {
-  return bids.map((bid: Bid) => {
+  const bidsList: JSX.Element[] = bids.reverse().map((bid: Bid) => {
     return (
       <li key={bid.id}>
         ${bid.amount} on {moment(bid.created_at).format('MM/DD/YYYY')}
       </li>
     );
   });
+  return (
+    <ul className="userBidList">
+      <ul>{bidsList}</ul>
+    </ul>
+  );
 };
 
 export default function UserDetails(props: UserDetailsProps): ReactElement {
   const { user }: UserDetailsProps = props;
-  console.log(props);
+  user.bids = user.bids || [];
+  const userHasBids: boolean = !user.bids.length;
   return (
     <div>
       <div className="avatar">
@@ -40,14 +46,8 @@ export default function UserDetails(props: UserDetailsProps): ReactElement {
       <br />
       Member ID: {user.id}
       <br />
-      Recent Bids: ({user.bids ? user.bids.length : '0'}) <br />
-      {user.bids ? (
-        <ul className="userBidList">
-          <ul>{renderBids(user.bids)}</ul>
-        </ul>
-      ) : (
-        '...No recent bids'
-      )}
+      Recent Bids: ({userHasBids ? '0' : user.bids.length}) <br />
+      {userHasBids ? '....No recent bids' : renderBids(user.bids)}
     </div>
   );
 }
