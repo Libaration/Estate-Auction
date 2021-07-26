@@ -871,7 +871,7 @@ input::-webkit-inner-spin-button {
 }
 
 .avatar img {
-  height: 200px;
+  height: 100px;
   background-size: cover;
   border-radius: 50%;
   box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.493);
@@ -921,4 +921,34 @@ input::-webkit-inner-spin-button {
   position: relative;
   top: 0.4rem;
   margin-right: 0.5rem;
+}
+
+.userShowField .homeShowCard .card {
+  height: 150px;
+  width: 200px;
+  background-color: rgba(0, 128, 0, 0);
+  margin-left: 200px;
+  padding-left: 100px;
+  box-shadow: none;
+  text-align: center;
+}
+
+.userShowField .homeShowCard .myHomes img {
+  height: 100px;
+  width: 100px;
+}
+
+.userShowField .homeShowCard {
+  display: flex;
+  text-align: center;
+  padding-left: 290px;
+}
+
+.userShowField .userShowLogo {
+  position: absolute;
+  left: -490px;
+  top: 5em;
+}
+.userShowField .userShowLogo img {
+  height: 400px;
 }
