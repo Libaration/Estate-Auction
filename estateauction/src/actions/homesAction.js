@@ -4,10 +4,22 @@ export const fetchHomes = (id = 'all') => {
   return async (dispatch) => {
     dispatch({ type: 'LOADING' });
     let response =
-      id === 'all' ? await fetch(API) : await fetch(`${APIUsers}/${id}/homes`);
+      id === 'all' ? await fetch(API) : await fetch(`${API}/${id}`);
     let responseJSON = await response.json();
     dispatch({
       type: 'FETCH_HOMES',
+      payload: id === 'all' ? responseJSON : [responseJSON],
+    });
+  };
+};
+
+export const fetchUserHomes = (id) => {
+  return async (dispatch) => {
+    dispatch({ type: 'LOADING' });
+    let response = await fetch(`${APIUsers}/${id}/homes`);
+    let responseJSON = await response.json();
+    dispatch({
+      type: 'FETCH_USER_HOMES',
       payload: responseJSON,
     });
   };

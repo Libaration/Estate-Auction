@@ -24,6 +24,13 @@ const homesReducer = (
         loading: state.loading,
         sortedBy: action.payload,
       };
+
+    case 'FETCH_USER_HOMES':
+      return {
+        homes: action.payload,
+        loading: false,
+        sortedBy: state.sortedBy,
+      };
     default:
       return state;
   }

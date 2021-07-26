@@ -34,6 +34,7 @@ export default function HomeBid(props) {
       );
     });
   };
+  console.log(props, 'from homebid.js');
   return (
     <div className="bidOverlay">
       <motion.div

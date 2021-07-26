@@ -6,13 +6,13 @@ json.details @home.details
 json.bathrooms @home.bathrooms
 json.bedrooms @home.bedrooms
 json.zoning @home.zoning
+json.bids @home.bids.reverse do |bid|
+    json.id bid.id
+    json.amount bid.amount
+    json.user bid.user.username
+end
 if @home.endDate.present?
     json.endDate Home.time_to_js(@home.endDate)
 else 
     json.endDate nil
-end
-json.bids @bids.reverse do |bid|
-    json.id bid.id
-    json.amount bid.amount
-    json.user bid.user.username
 end

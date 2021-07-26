@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserDetails from '../components/user/UserDetails';
-import { fetchHomes } from '../actions/homesAction';
+import { fetchUserHomes } from '../actions/homesAction';
 import Home from '../components/home/Home';
 import logo from '../logo.png';
 
@@ -14,7 +14,7 @@ interface Props {
     bids?: [];
   };
   homes: { homes: Homes[] };
-  fetchHomes: (id: string) => void;
+  fetchUserHomes: (id: string) => void;
 }
 interface Homes {
   id: number;
@@ -24,7 +24,7 @@ interface Homes {
 class UserContainer extends Component<Props> {
   componentDidMount() {
     const { user } = this.props;
-    this.props.fetchHomes((user.id as unknown as string) || 'all');
+    this.props.fetchUserHomes((user.id as unknown as string) || 'all');
   }
 
   renderHomes = () => {
@@ -72,7 +72,7 @@ const mapStateToProps = (state: Props) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    fetchHomes: (id: string | undefined) => dispatch(fetchHomes(id)),
+    fetchUserHomes: (id: string | undefined) => dispatch(fetchUserHomes(id)),
   };
 };
 
