@@ -9,6 +9,9 @@
 #### Bidding
 ![Bidding](https://i.gyazo.com/91712b6a910d5e91aeee9c8d3ed01080.png)
 
+#### Adding a New Auction
+![Add](https://i.gyazo.com/990c31baf95739d21f1d752db043a034.png)
+
 #### Auctions List
 ![Listing](https://i.gyazo.com/cb6555c88881886223832dc61e3c7bff.jpg)
 
