@@ -24,7 +24,7 @@ interface Homes {
 class UserContainer extends Component<Props> {
   componentDidMount() {
     const { user } = this.props;
-    this.props.fetchUserHomes((user.id as unknown as string) || 'all');
+    this.props.fetchUserHomes(user.id as unknown as string);
   }
 
   renderHomes = () => {
@@ -72,7 +72,7 @@ const mapStateToProps = (state: Props) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    fetchUserHomes: (id: string | undefined) => dispatch(fetchUserHomes(id)),
+    fetchUserHomes: (id: string) => dispatch(fetchUserHomes(id)),
   };
 };
 
