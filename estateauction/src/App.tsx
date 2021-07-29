@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { Header } from './components/pages/Header';
 import SideNav from './components/pages/SideNav';
 import Login from './components/pages/login/index';
+import HomeContainer from './containers/HomeContainer';
 
 interface Props {
   user: User;
@@ -20,6 +21,7 @@ interface Props {
 
 function App(props: Props): ReactElement {
   const { authenticateToken } = props;
+  const location = useLocation();
   useEffect(() => {
     if (isLoggedIn()) {
       authenticateToken(localStorage.getItem('token')!);
@@ -44,6 +46,8 @@ function App(props: Props): ReactElement {
           path="/login"
           render={() => <Login login={props.login} />}
         />
+        <Switch location={location} key={location.pathname}></Switch>
+        <PrivateRoute exact path="/homes" component={HomeContainer} />
       </AnimatePresence>
     </div>
   );

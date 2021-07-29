@@ -10,6 +10,7 @@ class HomesController < ApplicationController
 
     def show 
         @home = Home.find(params[:id])
+        @homes = [@home]
         @bids = @home.bids
     end
 
