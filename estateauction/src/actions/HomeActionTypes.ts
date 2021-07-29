@@ -17,6 +17,7 @@ export interface Home {
   zoning: string;
   bids: Bid[];
   endDate: string;
+  createdAt: string;
 }
 
 export interface Loading {

@@ -27,7 +27,6 @@ function App(props: Props): ReactElement {
       authenticateToken(localStorage.getItem('token')!);
     }
   }, [authenticateToken]);
-  console.log('Props coming from App.tsx', props);
   return (
     <div className="App">
       <Header />

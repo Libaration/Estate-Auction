@@ -2,6 +2,7 @@ import {
   FETCH_HOMES,
   FETCH_USER_HOMES,
   HomeActionDispatchTypes,
+  LOADING,
   PLACE_BID,
   SORT_HOMES,
 } from '../actions/HomeActionTypes';
@@ -19,7 +20,7 @@ const HomesReducer = (
   switch (action.type) {
     case FETCH_HOMES:
       return {
-        ...action.payload,
+        homesList: action.payload,
         loading: false,
         sortedBy: state.sortedBy,
       };
@@ -40,6 +41,13 @@ const HomesReducer = (
       return {
         ...action.payload,
         loading: false,
+        sortedBy: state.sortedBy,
+      };
+
+    case LOADING:
+      return {
+        ...state,
+        loading: true,
         sortedBy: state.sortedBy,
       };
     default:

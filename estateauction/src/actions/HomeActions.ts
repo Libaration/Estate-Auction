@@ -94,6 +94,7 @@ export const createHome =
     }
   };
 
-export const sortBy = (sortMethod: string) => {
-  return { type: SORT_HOMES, payload: sortMethod };
-};
+export const sortBy =
+  (sortMethod: string) => (dispatch: Dispatch<HomeActionDispatchTypes>) => {
+    dispatch({ type: SORT_HOMES, payload: sortMethod });
+  };
