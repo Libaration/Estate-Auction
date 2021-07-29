@@ -42,5 +42,6 @@ export const authenticateToken =
   };
 
 export const logout = () => (dispatch: Dispatch<UserActionDispatchTypes>) => {
+  localStorage.removeItem('token');
   dispatch({ type: LOGOUT });
 };
