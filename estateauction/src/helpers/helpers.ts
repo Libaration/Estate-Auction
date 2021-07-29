@@ -25,13 +25,13 @@ export const sortHomesBy = (sortingType: string, homes: Home[]): Home[] => {
     case 'endingSoon':
       return homes.sort((a: Home, b: Home) => {
         if (
-          moment(a.endDate).format('YYYYMMDDHHmm') <
+          moment(a.endDate).format('YYYYMMDDHHmm') >
           moment(b.endDate).format('YYYYMMDDHHmm')
         ) {
           return 1;
         }
         if (
-          moment(a.endDate).format('YYYYMMDDHHmm') >
+          moment(a.endDate).format('YYYYMMDDHHmm') <
           moment(b.endDate).format('YYYYMMDDHHmm')
         ) {
           return -1;
@@ -42,5 +42,11 @@ export const sortHomesBy = (sortingType: string, homes: Home[]): Home[] => {
       return homes;
   }
 };
-// moment(a.endDate).format('YYYYMMDDHHmm') -
-//       moment(b.endDate).format('YYYYMMDDHHmm')
+
+export default function numberWithCommas(x: number) {
+  if (x !== null) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  } else {
+    return x;
+  }
+}

@@ -45,8 +45,9 @@ function App(props: Props): ReactElement {
           path="/login"
           render={() => <Login login={props.login} />}
         />
-        <Switch location={location} key={location.pathname}></Switch>
-        <PrivateRoute exact path="/homes" component={HomeContainer} />
+        <Switch location={location} key={location.pathname}>
+          <PrivateRoute exact path="/homes" component={HomeContainer} />
+        </Switch>
       </AnimatePresence>
     </div>
   );

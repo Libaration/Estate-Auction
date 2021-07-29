@@ -1,4 +1,4 @@
-import React, { Component, FormEvent, ChangeEvent } from 'react';
+import React, { Component, FormEvent } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import logo from '../../../logo.png';
 import { motion } from 'framer-motion';

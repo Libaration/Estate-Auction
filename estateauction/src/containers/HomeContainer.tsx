@@ -8,21 +8,21 @@ interface Props {
   fetchHomes: () => void;
   sortBy: (sortType: string) => void;
   loading: boolean;
-  sortedBy: string;
   homes: {
     homesList: Home[];
+    sortedBy: string;
   };
 }
 interface State {
   homes: {
     homesList: Home[];
+    sortedBy: string;
   };
 }
 class HomeContainer extends Component<Props> {
   componentDidMount() {
     this.props.fetchHomes();
   }
-
   render() {
     const isLoading: boolean = this.props.loading;
     return (
@@ -31,9 +31,9 @@ class HomeContainer extends Component<Props> {
           '...loading'
         ) : (
           <HomeList
-            sortedBy={this.props.sortedBy}
+            sortedBy={this.props.homes.sortedBy}
             homes={this.props.homes.homesList}
-            sortHomes={this.props.sortBy}
+            sortAction={this.props.sortBy}
           />
         )}
       </>
@@ -42,7 +42,10 @@ class HomeContainer extends Component<Props> {
 }
 const mapStateToProps = (state: State) => {
   return {
-    homes: state.homes,
+    homes: {
+      ...state.homes,
+      sortedBy: state.homes.sortedBy,
+    },
   };
 };
 export default connect(mapStateToProps, { fetchHomes, sortBy })(HomeContainer);
