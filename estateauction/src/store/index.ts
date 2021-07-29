@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import usersReducer from '../reducers/usersReducer';
+import UsersReducer from '../reducers/UsersReducer';
 import thunk from 'redux-thunk';
 import homesReducer from '../reducers/homesReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
-  user: usersReducer,
+  user: UsersReducer,
   homes: homesReducer,
 });
 

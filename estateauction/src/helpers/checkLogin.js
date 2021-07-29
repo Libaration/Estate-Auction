@@ -1,5 +1,5 @@
 export const checkLogin = (props) => {
-  if (localStorage.token && props.loggedIn === false) {
+  if (localStorage.token && props.isLoggedIn === false) {
     props.authenticateToken(localStorage.getItem('token'));
   }
 };
