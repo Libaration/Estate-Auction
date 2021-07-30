@@ -49,15 +49,15 @@ class UserContainer extends Component<Props> {
     const areHomesPopulated: boolean = !this.props.loading;
     return (
       <>
+        <div className="userShowLogo">
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="myHomes">
+          {areHomesPopulated ? this.renderHomes() : ''}
+        </div>
         <div className="userShowField">
           <div className="homeShowCard">
-            <div className="userShowLogo">
-              <img src={logo} alt="logo" />
-            </div>
             <UserDetails user={this.props.user} />
-            <div className="myHomes">
-              {areHomesPopulated ? this.renderHomes() : ''}
-            </div>
           </div>
         </div>
       </>

@@ -890,6 +890,7 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   width: 800px;
   height: 700px;
+
   border-radius: 8px;
   position: relative;
   margin-top: 3%;
@@ -933,9 +934,18 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.userShowField .homeShowCard .myHomes img {
+.myHomes img {
   height: 100px;
   width: 100px;
+  margin-right: 20px;
+}
+.myHomes {
+  position: absolute;
+  height: 200px;
+}
+.myHomes .card {
+  height: 150px;
+  margin: 5px;
 }
 
 .userShowField .homeShowCard {
@@ -944,11 +954,12 @@ input::-webkit-inner-spin-button {
   padding-left: 290px;
 }
 
-.userShowField .userShowLogo {
+.userShowLogo {
   position: absolute;
-  left: -490px;
-  top: 5em;
+  z-index: 2;
+  left: 185px;
+  top: 14em;
 }
-.userShowField .userShowLogo img {
+.userShowLogo img {
   height: 400px;
 }
