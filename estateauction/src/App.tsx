@@ -14,6 +14,7 @@ import HomeContainer from './containers/HomeContainer';
 import UserContainer from './containers/UserContainer';
 import AddHome from './components/pages/homes/new';
 import HomeShow from './components/pages/homes/show';
+import { index as Root } from './components/pages/root/index';
 
 interface Props {
   user: User;
@@ -53,6 +54,7 @@ function App(props: Props): ReactElement {
           <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
           <PrivateRoute exact path="/profile" component={UserContainer} />
+          <Route exact path="/" component={Root} />
         </Switch>
       </AnimatePresence>
     </div>

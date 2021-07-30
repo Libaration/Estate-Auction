@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import UserDetails from '../components/user/UserDetails';
+import UserDetails from '../components/pages/user/UserDetails';
 import { fetchUserHomes } from '../actions/HomeActions';
 import HomeShow from '../components/pages/homes/card';
 import logo from '../logo.png';

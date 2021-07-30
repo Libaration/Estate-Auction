@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import moment from 'moment';
-import { User, Bid } from '../../actions/UserActionTypes';
+import { User, Bid } from '../../../actions/UserActionTypes';
 
 interface Props {
   user: User;
