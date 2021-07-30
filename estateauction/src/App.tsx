@@ -11,6 +11,7 @@ import { Header } from './components/pages/Header';
 import SideNav from './components/pages/SideNav';
 import Login from './components/pages/login/index';
 import HomeContainer from './containers/HomeContainer';
+import UserContainer from './containers/UserContainer';
 
 interface Props {
   user: User;
@@ -47,6 +48,7 @@ function App(props: Props): ReactElement {
         />
         <Switch location={location} key={location.pathname}>
           <PrivateRoute exact path="/homes" component={HomeContainer} />
+          <PrivateRoute exact path="/profile" component={UserContainer} />
         </Switch>
       </AnimatePresence>
     </div>

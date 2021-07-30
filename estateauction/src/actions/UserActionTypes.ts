@@ -21,6 +21,7 @@ export interface Users {
 export interface Bid {
   id: number;
   amount: number;
+  created_at: string;
 }
 
 export interface TryLogin {

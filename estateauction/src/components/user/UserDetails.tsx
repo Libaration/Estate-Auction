@@ -1,23 +1,13 @@
 import React, { ReactElement } from 'react';
 import moment from 'moment';
-interface UserDetailsProps {
-  user: {
-    username: string;
-    created_at: string;
-    id: number;
-    url: string;
-    bids?: [] | null;
-  };
+import { User, Bid } from '../../actions/UserActionTypes';
+
+interface Props {
+  user: User;
 }
 
-interface Bid {
-  amount: number;
-  id: number;
-  created_at: string;
-}
-
-const renderBids = (bids: []) => {
-  const bidsList: JSX.Element[] = bids.reverse().map((bid: Bid) => {
+const renderBids = (bids: Bid[]) => {
+  const bidsList: JSX.Element[] = bids.reverse().map((bid) => {
     return (
       <li key={bid.id}>
         ${bid.amount} on {moment(bid.created_at).format('MM/DD/YYYY')}
@@ -31,8 +21,8 @@ const renderBids = (bids: []) => {
   );
 };
 
-export default function UserDetails(props: UserDetailsProps): ReactElement {
-  const { user }: UserDetailsProps = props;
+export default function UserDetails(props: Props): ReactElement {
+  const { user }: Props = props;
   user.bids = user.bids || [];
   const userHasBids: boolean = !user.bids.length;
   return (

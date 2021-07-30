@@ -26,7 +26,7 @@ export const fetchHomes =
   };
 
 export const fetchUserHomes =
-  (id: string) => async (dispatch: Dispatch<HomeActionDispatchTypes>) => {
+  (id: number) => async (dispatch: Dispatch<HomeActionDispatchTypes>) => {
     dispatch({ type: LOADING });
     try {
       let response = await fetch(`${APIUsers}/${id}/homes`);

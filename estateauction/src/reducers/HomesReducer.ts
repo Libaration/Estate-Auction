@@ -39,7 +39,7 @@ const HomesReducer = (
 
     case FETCH_USER_HOMES:
       return {
-        ...action.payload,
+        homesList: action.payload,
         loading: false,
         sortedBy: state.sortedBy,
       };

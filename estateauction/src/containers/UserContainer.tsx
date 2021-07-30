@@ -1,50 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserDetails from '../components/user/UserDetails';
-import { fetchUserHomes } from '../actions/homesAction';
-import Home from '../components/home/Home';
+import { fetchUserHomes } from '../actions/HomeActions';
+import HomeShow from '../components/pages/homes/show';
 import logo from '../logo.png';
+import { User } from '../actions/UserActionTypes';
+import { Home } from '../actions/HomeActionTypes';
 
 interface Props {
-  user: {
-    username: string;
-    id: number;
-    readonly created_at: string;
-    url: string;
-    bids?: [];
+  user: User;
+  loading: boolean;
+  homes: {
+    homesList: Home[];
   };
-  homes: { homes: Homes[] };
-  fetchUserHomes: (id: string) => void;
+  fetchUserHomes: (id: number) => void;
 }
-interface Homes {
-  id: number;
-  address: string;
+interface State {
+  user: User;
+  homes: {
+    homesList: Home[];
+  };
 }
-
 class UserContainer extends Component<Props> {
   componentDidMount() {
     const { user } = this.props;
-    this.props.fetchUserHomes(user.id as unknown as string);
+    this.props.fetchUserHomes(user.id);
   }
 
   renderHomes = () => {
-    return (
-      <>
-        {this.props.homes.homes.map((home) => {
-          return (
-            <Home
-              key={home.id}
-              home={home}
-              viewOptions={{ willShowBids: false, willShowCountdown: false }}
-            />
-          );
-        })}
-      </>
-    );
+    const { homes } = this.props;
+    if (homes.homesList) {
+      return (
+        <>
+          {this.props.homes.homesList.map((home) => {
+            return (
+              <HomeShow
+                key={home.id}
+                home={home}
+                viewOptions={{ willShowBids: false, willShowCountdown: false }}
+              />
+            );
+          })}
+        </>
+      );
+    }
   };
   render() {
-    const { homes } = this.props.homes;
-    const haveHomesLoaded: boolean = !!homes.length ? true : false;
+    const areHomesPopulated: boolean = !this.props.loading;
     return (
       <>
         <div className="userShowField">
@@ -54,7 +56,7 @@ class UserContainer extends Component<Props> {
             </div>
             <UserDetails user={this.props.user} />
             <div className="myHomes">
-              {haveHomesLoaded ? this.renderHomes() : '....Loading'}
+              {areHomesPopulated ? this.renderHomes() : ''}
             </div>
           </div>
         </div>
@@ -63,17 +65,14 @@ class UserContainer extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: Props) => {
+const mapStateToProps = (state: State) => {
   return {
+    ...state,
     user: state.user,
-    homes: state.homes,
+    homes: {
+      ...state.homes,
+    },
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    fetchUserHomes: (id: string) => dispatch(fetchUserHomes(id)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
+export default connect(mapStateToProps, { fetchUserHomes })(UserContainer);
