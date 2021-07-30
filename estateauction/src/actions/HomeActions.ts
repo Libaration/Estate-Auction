@@ -60,13 +60,13 @@ export const placeBid =
     }
   };
 
-interface newHome {
+export interface newHome {
   details?: string;
   address: string;
   url: string;
   endDate: string;
-  bathrooms: string;
-  bedrooms: string;
+  bathrooms: number;
+  bedrooms: number;
   zoning: string;
 }
 export const createHome =

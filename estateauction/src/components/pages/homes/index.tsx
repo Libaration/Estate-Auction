@@ -12,7 +12,7 @@ interface Props {
   sortAction: (sortType: string) => void;
   homes: Home[];
 }
-const index = (props: Props) => {
+const Index = (props: Props) => {
   const areHomesPopulated: boolean = !!props.homes;
   const renderHomes = () => {
     const { homes } = props;
@@ -56,4 +56,4 @@ const index = (props: Props) => {
   );
 };
 
-export default index;
+export default Index;

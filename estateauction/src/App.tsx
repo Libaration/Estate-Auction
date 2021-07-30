@@ -12,6 +12,7 @@ import SideNav from './components/pages/SideNav';
 import Login from './components/pages/login/index';
 import HomeContainer from './containers/HomeContainer';
 import UserContainer from './containers/UserContainer';
+import AddHome from './components/pages/homes/new';
 
 interface Props {
   user: User;
@@ -47,6 +48,7 @@ function App(props: Props): ReactElement {
           render={() => <Login login={props.login} />}
         />
         <Switch location={location} key={location.pathname}>
+          <PrivateRoute exact path="/homes/add" component={AddHome} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
           <PrivateRoute exact path="/profile" component={UserContainer} />
         </Switch>

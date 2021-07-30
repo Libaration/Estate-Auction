@@ -13,7 +13,7 @@ interface Props {
   };
 }
 
-export const show = (props: Props) => {
+export const Show = (props: Props) => {
   const { home, viewOptions } = props;
   const imageRoute = `/homes/${home.id}`;
 
@@ -44,4 +44,4 @@ export const show = (props: Props) => {
   );
 };
 
-export default show;
+export default Show;
