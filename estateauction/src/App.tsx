@@ -13,6 +13,7 @@ import Login from './components/pages/login/index';
 import HomeContainer from './containers/HomeContainer';
 import UserContainer from './containers/UserContainer';
 import AddHome from './components/pages/homes/new';
+import HomeShow from './components/pages/homes/show';
 
 interface Props {
   user: User;
@@ -49,6 +50,7 @@ function App(props: Props): ReactElement {
         />
         <Switch location={location} key={location.pathname}>
           <PrivateRoute exact path="/homes/add" component={AddHome} />
+          <PrivateRoute exact path="/homes/:homeId" component={HomeShow} />
           <PrivateRoute exact path="/homes" component={HomeContainer} />
           <PrivateRoute exact path="/profile" component={UserContainer} />
         </Switch>

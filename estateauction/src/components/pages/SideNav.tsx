@@ -29,8 +29,15 @@ function SideNav({ isLoggedIn }: Props): ReactElement {
         <div className="sideNavLinks">
           <Link to="/">Home</Link>
           <Link to="/homes">Auctions</Link>
-          <Link to="/homes/add">List New Home</Link>
-          <Link to="/profile">My Profile</Link>
+          {isLoggedIn ? (
+            <>
+              {' '}
+              <Link to="/homes/add">List New Home</Link>
+              <Link to="/profile">My Profile</Link>
+            </>
+          ) : (
+            ''
+          )}
           {isLoggedIn ? (
             <Link to="/logout">Logout</Link>
           ) : (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { sortHomesBy } from '../../../helpers/helpers';
 import { Home } from '../../../actions/HomeActionTypes';
-import ShowHome from './show';
+import HomeCard from './card';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
 import endingsoon from '../../../icons/endingsoon.png';
@@ -20,7 +20,7 @@ const Index = (props: Props) => {
     return homesList.map((home) => {
       return (
         <div className="homeCards" key={uuidv4()}>
-          <ShowHome
+          <HomeCard
             home={home}
             key={uuidv4()}
             viewOptions={{ willShowBids: true, willShowCountdown: true }}

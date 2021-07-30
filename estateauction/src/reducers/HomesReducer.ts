@@ -9,9 +9,14 @@ import {
 interface IDefaultState {
   loading: boolean;
   sortedBy: string;
+  homesList: [];
 }
 
-const defaultState: IDefaultState = { loading: false, sortedBy: '' };
+const defaultState: IDefaultState = {
+  homesList: [],
+  loading: false,
+  sortedBy: '',
+};
 
 const HomesReducer = (
   state: IDefaultState = defaultState,
@@ -26,7 +31,7 @@ const HomesReducer = (
       };
     case PLACE_BID:
       return {
-        ...action.payload,
+        homesList: [action.payload],
         loading: false,
         sortedBy: state.sortedBy,
       };

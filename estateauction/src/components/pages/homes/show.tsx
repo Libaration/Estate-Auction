@@ -1,47 +1,93 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router-dom';
+import { fetchHomes, placeBid } from '../../../actions/HomeActions';
 import { Home } from '../../../actions/HomeActionTypes';
-import { Link } from 'react-router-dom';
+import HomeMap from './HomeMap';
+import HomeDetails from './HomeDetails';
 import { motion } from 'framer-motion';
-import numberWithCommas from '../../../helpers/helpers';
-import HomeCountdown from './countdown';
+import HomeBid from './Bid';
 
-interface Props {
-  home: Home;
-  viewOptions: {
-    willShowBids: boolean;
-    willShowCountdown: boolean;
+interface MatchParams {
+  homeId: string;
+}
+
+interface Props extends RouteComponentProps<MatchParams> {
+  homes: {
+    homesList: Home[];
+    loading: boolean;
+  };
+
+  fetchHomes: (homeId: string) => void;
+  placeBid: (homeId: number, value: number) => void;
+}
+interface State {
+  bidPage: {
+    visible: boolean;
   };
 }
 
-export const Show = (props: Props) => {
-  const { home, viewOptions } = props;
-  const imageRoute = `/homes/${home.id}`;
-
-  const renderBids = () => {
+class Show extends Component<Props, State> {
+  state = {
+    bidPage: {
+      visible: false,
+    },
+  };
+  toggleVisible = () => {
+    this.setState((prevState) => {
+      return {
+        bidPage: {
+          visible: !prevState.bidPage.visible,
+        },
+      };
+    });
+  };
+  componentDidMount() {
+    const { homeId } = this.props.match.params;
+    this.props.fetchHomes(homeId);
+  }
+  renderHome = () => {
+    const home: Home = this.props.homes.homesList[0];
     return (
-      <div className="caption">
-        <div className="bidDetails">
-          Current Bid:{' '}
-          <span className="bid">${numberWithCommas(home.bid)}</span>
-        </div>
+      <div className="homeShowCard">
+        <HomeDetails home={home} toggleVisible={this.toggleVisible} />
+        <HomeMap home={home} />
       </div>
     );
   };
 
-  const renderCountDown = () => {
-    return <HomeCountdown home={home} />;
+  render() {
+    const home = this.props.homes.homesList[0];
+    return (
+      <motion.div
+        transition={{ duration: 0.1 }}
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+        exit={{ scale: 0 }}
+      >
+        {this.state.bidPage.visible ? (
+          <HomeBid
+            home={home}
+            toggleVisible={this.toggleVisible}
+            placeBid={this.props.placeBid}
+          />
+        ) : (
+          ''
+        )}
+        <div className="homeShowField">
+          {this.props.homes.homesList.length > 0
+            ? this.renderHome()
+            : 'loading....'}
+        </div>
+      </motion.div>
+    );
+  }
+}
+const mapStateToProps = (state: Props) => {
+  return {
+    homes: {
+      ...state.homes,
+    },
   };
-  return (
-    <div className="card">
-      <Link to={imageRoute}>
-        <motion.div transition={{ duration: 0.5 }} whileHover={{ scale: 1.1 }}>
-          <img src={home.url} alt="home" />
-        </motion.div>
-      </Link>
-      {viewOptions.willShowBids ? renderBids() : ''}
-      {viewOptions.willShowCountdown ? renderCountDown() : ''}
-    </div>
-  );
 };
-
-export default Show;
+export default connect(mapStateToProps, { fetchHomes, placeBid })(Show);
