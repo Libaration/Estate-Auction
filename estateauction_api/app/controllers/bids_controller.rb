@@ -13,6 +13,9 @@ class BidsController < ApplicationController
         @home.update(bid: @home.bid + @bid)
         end
         @bids = @home.bids
+
+        #I don't use this method anymore extracted to the Hooks method to check payment success
+        #TODO: delete method make sure it isn't still being used elsewhere
     end
 
     def checkout
@@ -67,12 +70,16 @@ class BidsController < ApplicationController
         uri = URI.parse(checkout_session.success_url)
         params = CGI.parse(uri.query)
         if checkout_session.payment_status == "paid"
+            puts "Status marked as paid begin db changes"
             @home = Home.find(params["home"]).first
             @user = User.find(params["id"]).first
-            @bid = Money.from_cents(checkout_session.amount_total, "USD").format(symbol: false).to_i
+            @bid = Money.from_cents(checkout_session.amount_total, "USD").to_i
+            puts "Placing bid #{@bid} current bid is #{@home.bid} so total should be #{@home.bid + @bid}"
             if @home.endDate > Time.now
                 @user.bids.create(amount: @bid, home: @home)
                 @home.update(bid: @home.bid + @bid)
+            else
+                return status 400
             end
         end
     end
