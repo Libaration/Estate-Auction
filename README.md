@@ -3,6 +3,9 @@
 #### Login
 ![Login](https://i.gyazo.com/88a570d303856a99d9976c62493493a5.jpg)
 
+#### Accepts payments using Stripe
+![Payments](https://i.gyazo.com/6d07521491c7b4e2fee690e323ac2de2.png)
+
 #### Viewing Home/Auction Page
 ![Viewing](https://i.gyazo.com/341f181f0639b9d270196704617b0e5d.png)
 
