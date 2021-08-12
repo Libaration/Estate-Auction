@@ -1,4 +1,6 @@
 class BidsController < ApplicationController
+    require 'stripe'
+    Stripe.api_key = ENV['STRIPE_KEY']
     def create
         @home = Home.find(params[:id])
         @token = request.headers['Authorization']
