@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
     require 'stripe'
+    require 'money'
     Stripe.api_key = ENV['STRIPE_KEY']
     def create
         @bid = params[:bid].to_i   
@@ -19,6 +20,9 @@ class BidsController < ApplicationController
         @bid = params[:bid].to_i   
         @home = Home.find(params[:id])
         @bidInCents = (100 * params[:bid].to_r).to_i
+        @token = request.headers['Authorization']
+        @payload = decode(@token)
+        @user = User.find(@payload["id"])
         stripe_session = Stripe::Checkout::Session.create({
             payment_method_types: [
               'card',
@@ -34,7 +38,7 @@ class BidsController < ApplicationController
                 quantity: 1,
               }],
               mode: 'payment',
-              success_url: "#{domain}#{params[:url]}?success=true?session_id={CHECKOUT_SESSION_ID}",
+              success_url: "#{domain}#{params[:url]}?id=#{@user.id}&home=#{@home.id}&success=true&session_id={CHECKOUT_SESSION_ID}",
               cancel_url: "#{domain}#{params[:url]}?canceled=true",
             })
         render json: {url: "#{stripe_session.url}"}
@@ -60,5 +64,16 @@ class BidsController < ApplicationController
 
     def fulfill_order(checkout_session)
         puts "Fulfilling order method hit inside bids controller for #{checkout_session.inspect}"
-      end
+        uri = URI.parse(checkout_session.success_url)
+        params = CGI.parse(uri.query)
+        if checkout_session.payment_status == "paid"
+            @home = Home.find(params["home"]).first
+            @user = User.find(params["id"]).first
+            @bid = Money.from_cents(checkout_session.amount_total, "USD").format(symbol: false).to_i
+            if @home.endDate > Time.now
+                @user.bids.create(amount: @bid, home: @home)
+                @home.update(bid: @home.bid + @bid)
+            end
+        end
+    end
 end
