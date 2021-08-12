@@ -7,8 +7,9 @@ import { motion } from 'framer-motion';
 import cancel from '../../../icons/cancel.png';
 import dollar from '../../../icons/dollar.png';
 import bidding from '../../../icons/bidding.png';
-interface Props {
-  placeBid: (homeId: number, value: number) => void;
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+interface Props extends RouteComponentProps {
+  placeBid: (homeId: number, value: number, url: string) => void;
   toggleVisible: () => void;
   home: Home;
 }
@@ -22,7 +23,7 @@ const Bid = (props: Props) => {
     if (parseInt(value) <= 0) {
       setValue('Must be greater than 0');
     } else {
-      props.placeBid(props.home.id, parseInt(value));
+      props.placeBid(props.home.id, parseInt(value), props.location.pathname);
       setValue('');
     }
   };
@@ -82,4 +83,4 @@ const Bid = (props: Props) => {
   );
 };
 
-export default Bid;
+export default withRouter(Bid);

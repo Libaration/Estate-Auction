@@ -19,7 +19,7 @@ interface Props extends RouteComponentProps<MatchParams> {
   };
 
   fetchHomes: (homeId: string) => void;
-  placeBid: (homeId: number, value: number) => void;
+  placeBid: (homeId: number, value: number, url: string) => void;
 }
 interface State {
   bidPage: {
