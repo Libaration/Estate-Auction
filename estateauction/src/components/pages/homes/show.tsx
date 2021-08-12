@@ -42,14 +42,27 @@ class Show extends Component<Props, State> {
       };
     });
   };
+
+  renderPaymentStatus = (status: string) => {
+    return status === 'true' ? (
+      <div className="bidSuccess">Your bid was placed successfully!</div>
+    ) : (
+      <div className="bidFailure">
+        Oops! Something went wrong, please try to place your bid again
+      </div>
+    );
+  };
   componentDidMount() {
     const { homeId } = this.props.match.params;
     this.props.fetchHomes(homeId);
   }
   renderHome = () => {
     const home: Home = this.props.homes.homesList[0];
+    const params = new URLSearchParams(this.props.location.search);
+    const success = params.get('success');
     return (
       <div className="homeShowCard">
+        {success === null ? '' : this.renderPaymentStatus(success)}
         <HomeDetails home={home} toggleVisible={this.toggleVisible} />
         <HomeMap home={home} />
       </div>

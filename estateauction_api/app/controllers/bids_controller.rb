@@ -34,7 +34,8 @@ class BidsController < ApplicationController
                 price_data: {
                     currency: 'usd',
                     product_data: {
-                        name: "Bid for #{@home.address}"
+                        name: "Bid for address #{@home.address}",
+                        images: ["#{@home.url}"],
                     },
                     unit_amount: @bidInCents,
                 },
@@ -42,7 +43,7 @@ class BidsController < ApplicationController
               }],
               mode: 'payment',
               success_url: "#{domain}#{params[:url]}?id=#{@user.id}&home=#{@home.id}&success=true&session_id={CHECKOUT_SESSION_ID}",
-              cancel_url: "#{domain}#{params[:url]}?canceled=true",
+              cancel_url: "#{domain}#{params[:url]}?success=false",
             })
         render json: {url: "#{stripe_session.url}"}
     end

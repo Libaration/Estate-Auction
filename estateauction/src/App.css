@@ -963,3 +963,10 @@ input::-webkit-inner-spin-button {
 .userShowLogo img {
   height: 400px;
 }
+
+.bidSuccess {
+  color: green;
+}
+.bidFailure {
+  color: red;
+}
