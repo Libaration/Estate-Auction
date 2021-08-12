@@ -38,15 +38,17 @@ export const fetchUserHomes =
   };
 
 export const placeBid =
-  (homeId: number, bid: number) =>
+  (homeId: number, bid: number, url: string) =>
   async (dispatch: Dispatch<HomeActionDispatchTypes>) => {
     dispatch({ type: LOADING });
     try {
-      let response = await fetch(`${API}/${homeId}/bid`, {
+      let response = await fetch(`${API}/${homeId}/bid/checkout`, {
         method: 'POST',
+        redirect: 'follow',
         body: JSON.stringify({
           id: homeId,
           bid: bid,
+          url: url,
         }),
         headers: {
           Authorization: token,
@@ -54,7 +56,8 @@ export const placeBid =
         },
       });
       let responseJSON = await response.json();
-      dispatch({ type: PLACE_BID, payload: responseJSON });
+      window.location.href = responseJSON.url;
+      //dispatch({ type: PLACE_BID, payload: responseJSON });
     } catch {
       dispatch({ type: FAILED_FETCH });
     }
