@@ -1,9 +1,8 @@
 require 'jwt'
-require_relative '../.token_key.rb'
 
 class ApplicationController < ActionController::API
     def secret_key
-        $key
+        ENV['KEY']
     end
     def encode(payload)
         JWT.encode(payload, secret_key)
