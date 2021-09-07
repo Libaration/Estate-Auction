@@ -19,10 +19,9 @@
 ![Listing](https://i.gyazo.com/cb6555c88881886223832dc61e3c7bff.jpg)
 
 # Estate-Auction
-Estate Auction is a basic CRUD example of using a Ruby/Rails as a backend API to serve a React/JS frontend.
+Estate Auction is a basic CRUD example of using a Ruby/Rails as a backend API to serve a React/Typescript frontend.
 The login uses a basic JWT authentication stored in the browsers localstorage to authenticate routes on the frontend.
 Bidding/Countdown works as intended although needs an after action for after countdowns have ended.
-You might see some random typescript in this project, I was in the process of redoing this project in typescript. Ignore those c:
 
 
 
